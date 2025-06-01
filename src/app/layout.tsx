@@ -1,34 +1,46 @@
+import { Geist, Geist_Mono } from 'next/font/google'
+import { Vazirmatn } from 'next/font/google'
 import type { Metadata } from 'next'
-import { Geist_Mono, Vazirmatn } from 'next/font/google'
-import './globals.css'
-import { cn } from 'clsx-for-tailwind'
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-})
+import { getDictionary } from '@/app/[lang]/dictionaries'
 
 const vazirmatn = Vazirmatn({
-  variable: '--font-vazirmatn',
   subsets: ['arabic'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-vazirmatn',
+  weight: ['400', '500', '700'],
+  display: 'swap',
 })
 
-export const metadata: Metadata = {
-  title: "Doogi - Share Your Child's Cute Words",
-  description: 'A place to share cute and sweet words of our children',
+export async function generateStaticParams() {
+  return [{ lang: 'en' }, { lang: 'fa' }]
 }
 
-export default function RootLayout({
-  children,
-}: {
+type Props = {
   children: React.ReactNode
-}) {
+  params: Promise<{ lang: 'en' | 'fa' }>
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { lang } = await params
+
+  return {
+    title:
+      lang === 'fa'
+        ? 'دوگی - اشتراک‌گذاری کلمات بامزه کودکان'
+        : "Doogi - Share Your Child's Cute Words",
+    description:
+      lang === 'fa'
+        ? 'جایی برای به اشتراک‌گذاری کلمه‌های بامزه و شیرین بچه‌هایمان'
+        : 'A place to share cute and sweet words of our children',
+  }
+}
+
+export default async function Layout({ children, params }: Props) {
+  const { lang } = await params
+  const dir = lang === 'fa' ? 'rtl' : 'ltr'
+
   return (
-    <html>
-      <body lang='fa' dir='rtl' className={vazirmatn.className}>
-        {children}
-      </body>
+    <html lang={lang} dir={dir} className={vazirmatn.variable}>
+      <body>{children}</body>
     </html>
   )
 }

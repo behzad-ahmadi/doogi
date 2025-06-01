@@ -67,7 +67,7 @@ importers:
         specifier: ^19
         version: 19.1.5(@types/react@19.1.6)
       daisyui:
-        specifier: ^5.0.27
+        specifier: ^5.0.43
         version: 5.0.43
       eslint:
         specifier: ^9
