@@ -1,11 +1,13 @@
-import { useRouter } from 'next/router'
+'use client'
+
+import { useParams } from 'next/navigation'
 import { getTranslations, getDirection, Language } from '../utils/i18n'
 
 export default function Home() {
-  const router = useRouter()
-  const { locale = 'fa' } = router
-  const t = getTranslations(locale as Language)
-  const dir = getDirection(locale as Language)
+  const params = useParams()
+  const lang = (params?.lang as Language) || 'fa'
+  const t = getTranslations(lang)
+  const dir = getDirection(lang)
 
   return (
     <div
@@ -55,16 +57,12 @@ export default function Home() {
 
         {/* Language Switcher */}
         <div className='text-center mb-8'>
-          <button
-            onClick={() =>
-              router.push(router.pathname, router.asPath, {
-                locale: locale === 'fa' ? 'en' : 'fa',
-              })
-            }
+          <a
+            href={`/${lang === 'fa' ? 'en' : 'fa'}`}
             className='text-pink-600 hover:text-pink-700 font-medium'
           >
-            {locale === 'fa' ? 'English' : 'فارسی'}
-          </button>
+            {lang === 'fa' ? 'English' : 'فارسی'}
+          </a>
         </div>
 
         {/* CTA Section */}
