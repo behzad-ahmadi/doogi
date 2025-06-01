@@ -11,7 +11,14 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.3"
+    "next": "15.3.3",
+    "clsx-for-tailwind": "^1.0.0",
+    "lodash": "^4.17.21",
+    "react-hook-form": "^7.56.1",
+    "react-toastify": "^11.0.5",
+    "swr": "^2.3.3",
+    "zod": "3.25.0-canary.20250416T221658",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "typescript": "^5",
@@ -22,6 +29,9 @@
     "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
-    "@eslint/eslintrc": "^3"
+    "@eslint/eslintrc": "^3",
+    "@types/lodash": "^4.17.16",
+    "daisyui": "^5.0.27",
+    "prettier": "^3.5.3"
   }
 }

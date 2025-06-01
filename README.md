@@ -15,11 +15,9 @@ Doogi is a delightful platform where parents can share and discover the adorable
 First, run the development server:
 
 ```bash
-npm run dev
+pnpm dev
 # or
 yarn dev
-# or
-pnpm dev
 # or
 bun dev
 ```
