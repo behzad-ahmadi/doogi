@@ -1,4 +1,14 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Doogi - Kids' Funny Word Mix-ups
+
+Doogi is a delightful platform where parents can share and discover the adorable and funny word mix-ups from their children who are just learning to talk. When kids start speaking, they often create unique and humorous combinations of words that bring joy to everyone around them.
+
+## Features
+
+- Share your child's funny word mix-ups with the community
+- Discover amusing word combinations from other children
+- Like and comment on your favorite word mix-ups
+- Create a collection of your child's linguistic adventures
+- Connect with other parents and share the joy of parenthood
 
 ## Getting Started
 
@@ -16,21 +26,29 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technology Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project is built with:
 
-## Learn More
+- [Next.js](https://nextjs.org) - The React framework for production
+- [Geist Font](https://vercel.com/font) - A modern, clean font family
+- Modern UI components for a delightful user experience
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+We welcome contributions! Whether you want to:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Report a bug
+- Suggest a new feature
+- Improve the documentation
+- Submit a pull request
 
-## Deploy on Vercel
+Please feel free to contribute to make Doogi even better for parents and their little ones.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+
+## License
+
+This project is open source and available under the MIT License.
