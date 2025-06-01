@@ -1,7 +1,10 @@
-import type { NextConfig } from "next";
+import { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+const config: NextConfig = {
+  i18n: {
+    locales: ['en', 'fa'],
+    defaultLocale: 'fa',
+  },
+}
 
-export default nextConfig;
+export default config
