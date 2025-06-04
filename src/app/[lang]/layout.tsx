@@ -16,8 +16,16 @@ const vazirmatn = Vazirmatn({
   display: 'swap',
 })
 
-export const metadata = {
-  title: 'Doogi',
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>
+}) {
+  const { lang } = await params
+  return {
+    title: 'Doogi',
+    manifest: `/${lang}/manifest.json`,
+  }
 }
 
 export const viewport: Viewport = {
@@ -43,6 +51,9 @@ export default async function RootLayout({
 
   return (
     <html lang={lang} dir={lang === 'fa' ? 'rtl' : 'ltr'}>
+      <head>
+        <link rel='manifest' href='/manifest.json' />
+      </head>
       <body className={`${inter.className} ${vazirmatn.className}`}>
         <ThemeProvider>
           <LanguageProvider dict={dict} lang={lang}>
