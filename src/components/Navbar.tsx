@@ -4,6 +4,8 @@ import Link from 'next/link'
 import ThemeController from '@/src/components/ThemeController'
 import LanguageSwitcher from '@/src/components/LanguageSwitcher'
 import { useLanguage } from '@/src/contexts/language-context'
+import Image from 'next/image'
+import { getImageUrl } from '@/src/utils/image'
 
 export default function Navbar() {
   const { dict, lang } = useLanguage()
@@ -30,7 +32,7 @@ export default function Navbar() {
           </div>
           <ul
             tabIndex={0}
-            className='menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow'
+            className='menu menu-lg dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow'
           >
             <li>
               <Link href={`/${lang}`} className='hover:bg-base-200'>
@@ -47,16 +49,32 @@ export default function Navbar() {
                 {dict.nav.stories}
               </Link>
             </li>
+            <li>
+              <ThemeController />
+            </li>
+            <li>
+              <LanguageSwitcher currentLang={lang} />
+            </li>
           </ul>
         </div>
+
+        <Link
+          href={`/${lang}`}
+          className='hidden lg:flex ps-2 w-full text-xl font-bold'
+        >
+          {dict.nav.doogi}
+          <Image
+            src={getImageUrl('/logo.png')}
+            alt='logo'
+            width={32}
+            height={32}
+            className='w-auto h-8'
+          />
+        </Link>
       </div>
 
-      <Link href={`/${lang}`} className='text-center w-full text-xl font-bold'>
-        {dict.nav.doogi}
-      </Link>
-
-      <div className='navbar-center hidden lg:flex'>
-        <ul className='menu menu-horizontal px-1 gap-2'>
+      <div className='navbar-center'>
+        <ul className='menu menu-horizontal px-1 gap-2 hidden lg:flex'>
           <li>
             <Link href={`/${lang}`} className='hover:bg-base-200'>
               {dict.nav.home}
@@ -73,11 +91,27 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
+
+        <Link
+          href={`/${lang}`}
+          className='text-center lg:hidden w-full text-xl font-bold'
+        >
+          {dict.nav.doogi}
+          <Image
+            src={getImageUrl('/logo.png')}
+            alt='logo'
+            width={32}
+            height={32}
+            className='w-auto h-8'
+          />
+        </Link>
       </div>
 
-      <div className='navbar-end gap-2'>
-        <ThemeController />
-        <LanguageSwitcher currentLang={lang} />
+      <div className='navbar-end'>
+        <div className='hidden lg:flex'>
+          <ThemeController />
+          <LanguageSwitcher currentLang={lang} />
+        </div>
       </div>
     </div>
   )

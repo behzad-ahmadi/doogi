@@ -1,52 +1,160 @@
-# Doogi - Kids' Funny Word Mix-ups
+# Doogi - Your AI Companion
 
-Doogi is a delightful platform where parents can share and discover the adorable and funny word mix-ups from their children who are just learning to talk. When kids start speaking, they often create unique and humorous combinations of words that bring joy to everyone around them.
+A modern web application built with Next.js, TypeScript, and Tailwind CSS.
 
-## Features
+## 🚀 Features
 
-- Share your child's funny word mix-ups with the community
-- Discover amusing word combinations from other children
-- Like and comment on your favorite word mix-ups
-- Create a collection of your child's linguistic adventures
-- Connect with other parents and share the joy of parenthood
+- 🌐 Internationalization (i18n) support
+- 🌙 Dark/Light mode
+- 📱 Progressive Web App (PWA)
+- 🔒 Authentication system
+- 📊 Analytics integration
+- 🎨 Modern UI with Tailwind CSS
+- 🔍 SEO optimized
+- 🚀 Fast and responsive
 
-## Getting Started
+## 🛠️ Tech Stack
 
-First, run the development server:
+- [Next.js](https://nextjs.org/) - React framework
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [DaisyUI](https://daisyui.com/) - UI components
+- [i18next](https://www.i18next.com/) - Internationalization
+- [next-i18next](https://github.com/i18next/next-i18next) - Next.js i18n integration
 
-```bash
-pnpm dev
-# or
-yarn dev
-# or
-bun dev
+## 📦 Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/doogi.git
+   cd doogi
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Set up environment variables:
+
+   - Copy `.env.example` to `.env.local`
+   - Update the values in `.env.local` according to your environment
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## 🔧 Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```env
+# Base URLs
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+NEXT_PUBLIC_API_URL=http://localhost:3000/api
+
+# Feature Flags
+NEXT_PUBLIC_ENABLE_ANALYTICS=false
+NEXT_PUBLIC_ENABLE_PWA=true
+
+# App Settings
+NEXT_PUBLIC_APP_VERSION=1.0.0
+
+# Authentication
+NEXT_PUBLIC_AUTH_ENABLED=true
+NEXT_PUBLIC_AUTH_PROVIDER=local
+
+# API Keys
+NEXT_PUBLIC_API_KEY=your_actual_api_key_here
+
+# Analytics
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+
+# Other Settings
+NEXT_PUBLIC_DEFAULT_LANGUAGE=fa
+NEXT_PUBLIC_SUPPORTED_LANGUAGES=en,fa
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Development
 
-## Technology Stack
+### Available Scripts
 
-This project is built with:
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript type checking
 
-- [Next.js](https://nextjs.org) - The React framework for production
-- [Geist Font](https://vercel.com/font) - A modern, clean font family
-- Modern UI components for a delightful user experience
+### Project Structure
 
-## Contributing
+```
+src/
+├── components/     # React components
+├── contexts/       # React contexts
+├── lib/           # Utility functions and configurations
+├── locales/       # Translation files
+├── pages/         # Next.js pages
+├── public/        # Static files
+├── styles/        # Global styles
+└── utils/         # Helper functions
+```
 
-We welcome contributions! Whether you want to:
+## 🌐 Internationalization
 
-- Report a bug
-- Suggest a new feature
-- Improve the documentation
-- Submit a pull request
+The application supports multiple languages. To add a new language:
 
-Please feel free to contribute to make Doogi even better for parents and their little ones.
+1. Add the language code to `NEXT_PUBLIC_SUPPORTED_LANGUAGES` in `.env.local`
+2. Create a new translation file in `src/locales/[lang]`
+3. Update the language switcher component
 
-## Deployment
+## 🎨 Theming
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+The application uses DaisyUI for theming. To customize the theme:
 
-## License
+1. Update the theme configuration in `tailwind.config.js`
+2. Modify the theme controller component
+3. Add new color schemes in the configuration
 
-This project is open source and available under the MIT License.
+## 📱 PWA Support
+
+The application is configured as a Progressive Web App. To customize PWA settings:
+
+1. Update the manifest file in `public/manifest.json`
+2. Modify the service worker configuration
+3. Add new icons in the `public` directory
+
+## 🔒 Authentication
+
+The authentication system is configurable through environment variables:
+
+- `NEXT_PUBLIC_AUTH_ENABLED` - Enable/disable authentication
+- `NEXT_PUBLIC_AUTH_PROVIDER` - Choose authentication provider
+
+## 📊 Analytics
+
+Google Analytics integration is available and can be configured through:
+
+- `NEXT_PUBLIC_ENABLE_ANALYTICS` - Enable/disable analytics
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID` - Google Analytics measurement ID
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [DaisyUI](https://daisyui.com/)
+- [i18next](https://www.i18next.com/)

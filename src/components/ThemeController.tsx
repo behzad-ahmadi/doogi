@@ -30,7 +30,7 @@ export default function ThemeController() {
       </div>
       <ul
         tabIndex={0}
-        className='dropdown-content menu bg-base-100 rounded-box z-[1] w-32 p-2 shadow'
+        className='dropdown-content menu bg-base-100 rounded-box z-[2] w-32 p-2 shadow'
       >
         <li>
           <button onClick={() => setTheme('light')}>{dict.theme.light}</button>

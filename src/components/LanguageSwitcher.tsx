@@ -21,18 +21,18 @@ export default function LanguageSwitcher({
   return (
     <div className='dropdown dropdown-end'>
       <div tabIndex={0} role='button' className='btn btn-ghost'>
-        🌐 {currentLang.toUpperCase()}
+        🌐
       </div>
       <ul
         tabIndex={0}
-        className='dropdown-content menu bg-base-100 rounded-box z-[1] w-32 p-2 shadow'
+        className='dropdown-content menu bg-base-100 rounded-box z-[2] w-32 p-2 shadow'
       >
         <li>
           <button
             onClick={() => switchLanguage('en')}
             className={currentLang === 'en' ? 'active' : ''}
           >
-            🇺🇸 English
+            English
           </button>
         </li>
         <li>
@@ -40,7 +40,7 @@ export default function LanguageSwitcher({
             onClick={() => switchLanguage('fa')}
             className={currentLang === 'fa' ? 'active' : ''}
           >
-            🇮🇷 فارسی
+            فارسی
           </button>
         </li>
       </ul>
