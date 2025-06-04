@@ -9,7 +9,7 @@ export default function Navbar() {
   const { dict, lang } = useLanguage()
 
   return (
-    <div className='navbar bg-base-100 shadow-lg'>
+    <div className='navbar bg-base-100 shadow-lg sticky top-0 z-50'>
       <div className='navbar-start'>
         <div className='dropdown'>
           <div tabIndex={0} role='button' className='btn btn-ghost lg:hidden'>
@@ -33,31 +33,44 @@ export default function Navbar() {
             className='menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow'
           >
             <li>
-              <Link href={`/${lang}`}>{dict.nav.home}</Link>
+              <Link href={`/${lang}`} className='hover:bg-base-200'>
+                {dict.nav.home}
+              </Link>
             </li>
             <li>
-              <Link href={`/${lang}/about`}>{dict.nav.about}</Link>
+              <Link href={`/${lang}/share`} className='hover:bg-base-200'>
+                {dict.nav.share}
+              </Link>
             </li>
             <li>
-              <Link href={`/${lang}/contact`}>{dict.nav.contact}</Link>
+              <Link href={`/${lang}/stories`} className='hover:bg-base-200'>
+                {dict.nav.stories}
+              </Link>
             </li>
           </ul>
         </div>
-        <Link href={`/${lang}`} className='btn btn-ghost text-xl'>
-          🌍 MultiLingual
-        </Link>
       </div>
 
+      <Link href={`/${lang}`} className='text-center w-full text-xl font-bold'>
+        {dict.nav.doogi}
+      </Link>
+
       <div className='navbar-center hidden lg:flex'>
-        <ul className='menu menu-horizontal px-1'>
+        <ul className='menu menu-horizontal px-1 gap-2'>
           <li>
-            <Link href={`/${lang}`}>{dict.nav.home}</Link>
+            <Link href={`/${lang}`} className='hover:bg-base-200'>
+              {dict.nav.home}
+            </Link>
           </li>
           <li>
-            <Link href={`/${lang}/about`}>{dict.nav.about}</Link>
+            <Link href={`/${lang}/share`} className='hover:bg-base-200'>
+              {dict.nav.share}
+            </Link>
           </li>
           <li>
-            <Link href={`/${lang}/contact`}>{dict.nav.contact}</Link>
+            <Link href={`/${lang}/stories`} className='hover:bg-base-200'>
+              {dict.nav.stories}
+            </Link>
           </li>
         </ul>
       </div>

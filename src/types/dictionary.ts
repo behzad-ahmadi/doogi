@@ -1,9 +1,10 @@
 export interface Dictionary {
   nav: {
     home: string
-    about: string
-    contact: string
+    share: string
+    stories: string
     language: string
+    doogi: string
   }
   home: {
     title: string
@@ -16,27 +17,27 @@ export interface Dictionary {
     feature4: string
     cta: string
   }
-  about: {
+  share: {
     title: string
-    content: string
-  }
-  contact: {
-    title: string
-    name: string
-    email: string
-    message: string
-    send: string
+    childWord: string
+    realWord: string
+    story: string
+    submit: string
     success: string
     error: string
+  }
+  stories: {
+    title: string
+    noStories: string
+    shareFirst: string
   }
   footer: {
     copyright: string
     description: string
+    doogi: string
   }
   theme: {
     light: string
     dark: string
-    cupcake: string
-    emerald: string
   }
 }
