@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "language": "Language"
+  },
+  "home": {
+    "title": "Welcome to Our Multilingual App",
+    "subtitle": "Built with Next.js 15, Tailwind 4, and DaisyUI 5",
+    "description": "This is a demonstration of a multilingual application supporting both English and Persian languages with modern web technologies.",
+    "features": "Features",
+    "feature1": "🌍 Multi-language support (English & Persian)",
+    "feature2": "🎨 Beautiful UI with DaisyUI components",
+    "feature3": "⚡ Fast performance with Next.js 15",
+    "feature4": "🎯 Responsive design with Tailwind CSS",
+    "cta": "Get Started"
+  },
+  "about": {
+    "title": "About Us",
+    "content": "We are passionate developers creating modern web applications with the latest technologies. Our focus is on building user-friendly, multilingual experiences that work seamlessly across different cultures and languages."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "success": "Message sent successfully!",
+    "error": "Please fill in all fields."
+  },
+  "footer": {
+    "copyright": "© 2024 Multilingual App. All rights reserved.",
+    "description": "A modern multilingual web application"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "cupcake": "Cupcake",
+    "emerald": "Emerald"
+  }
+}

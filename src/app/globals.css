@@ -1,2 +1,30 @@
 @import 'tailwindcss';
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark,
+    cupcake,
+    emerald;
+}
+
+/* Custom styles for RTL support */
+[dir='rtl'] {
+  text-align: right;
+}
+
+[dir='rtl'] .navbar-start {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+[dir='rtl'] .navbar-end {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Persian font support */
+/* @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+
+.font-persian {
+  font-family: 'Vazirmatn', sans-serif;
+} */

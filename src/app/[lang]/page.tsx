@@ -1,6 +1,7 @@
-import { getDictionary } from './dictionaries'
+import { getDictionary } from '@/src/lib/dictionaries'
+import Link from 'next/link'
 
-export default async function Page({
+export default async function Home({
   params,
 }: {
   params: Promise<{ lang: 'en' | 'fa' }>
@@ -9,75 +10,81 @@ export default async function Page({
   const dict = await getDictionary(lang)
 
   return (
-    <div className='min-h-screen bg-gradient-to-b from-pink-50 to-white'>
+    <div className='container mx-auto px-4 py-8'>
       {/* Hero Section */}
-      <div className='container mx-auto px-4 py-16'>
-        <div className='text-center mb-16'>
-          <h1 className='text-5xl font-bold text-pink-600 mb-6'>
-            {dict.hero.title}
-          </h1>
-          <p className='text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed'>
-            {dict.hero.subtitle}
-          </p>
-          <p className='text-lg text-gray-600 mt-4 max-w-2xl mx-auto'>
-            {dict.hero.inspiration}
-          </p>
-        </div>
-
-        {/* Features Section */}
-        <div className='grid md:grid-cols-3 gap-8 mb-16'>
-          <div className='bg-white p-6 rounded-lg shadow-lg'>
-            <div className='text-pink-500 text-4xl mb-4'>👶</div>
-            <h3 className='text-xl font-semibold mb-2'>
-              {dict.features.cuteWords.title}
-            </h3>
-            <p className='text-gray-600'>
-              {dict.features.cuteWords.description}
-            </p>
+      <div className='hero min-h-96 bg-base-200 rounded-box mb-8'>
+        <div className='hero-content text-center'>
+          <div className='max-w-md'>
+            <h1 className='text-5xl font-bold mb-6'>{dict.home.title}</h1>
+            <p className='text-lg mb-6'>{dict.home.subtitle}</p>
+            <p className='mb-8'>{dict.home.description}</p>
+            <Link href={`/${lang}/about`} className='btn btn-primary'>
+              {dict.home.cta}
+            </Link>
           </div>
-          <div className='bg-white p-6 rounded-lg shadow-lg'>
-            <div className='text-pink-500 text-4xl mb-4'>💝</div>
-            <h3 className='text-xl font-semibold mb-2'>
-              {dict.features.sweetMemories.title}
-            </h3>
-            <p className='text-gray-600'>
-              {dict.features.sweetMemories.description}
-            </p>
-          </div>
-          <div className='bg-white p-6 rounded-lg shadow-lg'>
-            <div className='text-pink-500 text-4xl mb-4'>🤗</div>
-            <h3 className='text-xl font-semibold mb-2'>
-              {dict.features.sharing.title}
-            </h3>
-            <p className='text-gray-600'>{dict.features.sharing.description}</p>
-          </div>
-        </div>
-
-        {/* Language Switcher */}
-        <div className='text-center mb-8'>
-          <a
-            href={`/${lang === 'fa' ? 'en' : 'fa'}`}
-            className='text-pink-600 hover:text-pink-700 font-medium'
-          >
-            {lang === 'fa' ? 'English' : 'فارسی'}
-          </a>
-        </div>
-
-        {/* CTA Section */}
-        <div className='text-center'>
-          <button className='bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full transition-colors duration-300'>
-            {dict.cta.button}
-          </button>
-          <p className='mt-4 text-gray-600'>{dict.cta.subtext}</p>
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className='bg-pink-50 py-8 mt-16'>
-        <div className='container mx-auto px-4 text-center text-gray-600'>
-          <p>{dict.footer.text}</p>
+      {/* Features Section */}
+      <div className='text-center mb-8'>
+        <h2 className='text-3xl font-bold mb-8'>{dict.home.features}</h2>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
+          <div className='card bg-base-100 shadow-xl'>
+            <div className='card-body items-center text-center'>
+              <p className='text-lg'>{dict.home.feature1}</p>
+            </div>
+          </div>
+          <div className='card bg-base-100 shadow-xl'>
+            <div className='card-body items-center text-center'>
+              <p className='text-lg'>{dict.home.feature2}</p>
+            </div>
+          </div>
+          <div className='card bg-base-100 shadow-xl'>
+            <div className='card-body items-center text-center'>
+              <p className='text-lg'>{dict.home.feature3}</p>
+            </div>
+          </div>
+          <div className='card bg-base-100 shadow-xl'>
+            <div className='card-body items-center text-center'>
+              <p className='text-lg'>{dict.home.feature4}</p>
+            </div>
+          </div>
         </div>
-      </footer>
+      </div>
+
+      {/* Demo Components */}
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+        <div className='card bg-base-100 shadow-xl'>
+          <div className='card-body'>
+            <h3 className='card-title'>Button Styles</h3>
+            <div className='card-actions justify-end gap-2'>
+              <button className='btn btn-primary'>Primary</button>
+              <button className='btn btn-secondary'>Secondary</button>
+              <button className='btn btn-accent'>Accent</button>
+            </div>
+          </div>
+        </div>
+
+        <div className='card bg-base-100 shadow-xl'>
+          <div className='card-body'>
+            <h3 className='card-title'>Alerts</h3>
+            <div className='alert alert-info'>
+              <span>Info alert example</span>
+            </div>
+          </div>
+        </div>
+
+        <div className='card bg-base-100 shadow-xl'>
+          <div className='card-body'>
+            <h3 className='card-title'>Badge Examples</h3>
+            <div className='flex gap-2 flex-wrap'>
+              <div className='badge badge-primary'>Primary</div>
+              <div className='badge badge-secondary'>Secondary</div>
+              <div className='badge badge-accent'>Accent</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

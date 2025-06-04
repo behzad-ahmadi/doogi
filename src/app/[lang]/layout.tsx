@@ -1,46 +1,59 @@
-import { Geist, Geist_Mono } from 'next/font/google'
-import { Vazirmatn } from 'next/font/google'
-import type { Metadata } from 'next'
-import { getDictionary } from './dictionaries'
+import { Inter, Vazirmatn } from 'next/font/google'
+import '../globals.css'
+import { getDictionary } from '@/src/lib/dictionaries'
 
+import Navbar from '@/src/components/Navbar'
+import Footer from '@/src/components/footer-component'
+import ThemeProvider from '@/src/components/theme-provider'
+import { LanguageProvider } from '@/src/contexts/language-context'
+import { Viewport } from 'next'
+
+const inter = Inter({ subsets: ['latin'] })
 const vazirmatn = Vazirmatn({
   subsets: ['arabic'],
   variable: '--font-vazirmatn',
-  weight: ['400', '500', '700'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
 })
+
+export const metadata = {
+  title: 'Doogi',
+}
+
+export const viewport: Viewport = {
+  themeColor: 'dark',
+  width: 1,
+  initialScale: 1,
+  maximumScale: 1,
+}
 
 export async function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'fa' }]
 }
 
-type Props = {
+export default async function RootLayout({
+  children,
+  params,
+}: {
   children: React.ReactNode
   params: Promise<{ lang: 'en' | 'fa' }>
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+}) {
   const { lang } = await params
-
-  return {
-    title:
-      lang === 'fa'
-        ? 'دوگی - اشتراک‌گذاری کلمات بامزه کودکان'
-        : "Doogi - Share Your Child's Cute Words",
-    description:
-      lang === 'fa'
-        ? 'جایی برای به اشتراک‌گذاری کلمه‌های بامزه و شیرین بچه‌هایمان'
-        : 'A place to share cute and sweet words of our children',
-  }
-}
-
-export default async function Layout({ children, params }: Props) {
-  const { lang } = await params
-  const dir = lang === 'fa' ? 'rtl' : 'ltr'
+  const dict = await getDictionary(lang)
 
   return (
-    <html lang={lang} dir={dir} className={vazirmatn.variable}>
-      <body>{children}</body>
+    <html lang={lang} dir={lang === 'fa' ? 'rtl' : 'ltr'}>
+      <body className={`${inter.className} ${vazirmatn.className}`}>
+        <ThemeProvider>
+          <LanguageProvider dict={dict} lang={lang}>
+            <div className='min-h-screen flex flex-col'>
+              <Navbar />
+              <main className='flex-1'>{children}</main>
+              <Footer />
+            </div>
+          </LanguageProvider>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
