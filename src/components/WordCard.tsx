@@ -1,7 +1,5 @@
 'use client'
 
-import { useLanguage } from '@/src/contexts/language-context'
-
 interface WordCardProps {
   childName: string
   word: string
@@ -15,8 +13,6 @@ export default function WordCard({
   explanation,
   createdAt,
 }: WordCardProps) {
-  const { dict } = useLanguage()
-
   return (
     <div className='card bg-base-100 shadow-xl'>
       <div className='card-body'>
