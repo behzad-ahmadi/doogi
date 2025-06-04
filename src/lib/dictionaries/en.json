@@ -30,7 +30,7 @@
     "error": "Please fill in all fields."
   },
   "footer": {
-    "copyright": "© 2024 Multilingual App. All rights reserved.",
+    "copyright": "© $year Multilingual App. All rights reserved.",
     "description": "A modern multilingual web application"
   },
   "theme": {
