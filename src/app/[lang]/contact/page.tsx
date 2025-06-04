@@ -1,12 +1,14 @@
 import { getDictionary } from '@/src/lib/dictionaries'
 import ContactForm from '@/src/components/ContactForm'
 
-export default async function Contact({
-  params,
-}: {
-  params: { lang: 'en' | 'fa' }
-}) {
-  const dict = await getDictionary(params.lang)
+type PageProps = {
+  params: Promise<{ lang: 'en' | 'fa' }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+
+export default async function Contact({ params }: PageProps) {
+  const resolvedParams = await params
+  const dict = await getDictionary(resolvedParams.lang)
 
   return (
     <div className='container mx-auto px-4 py-8'>

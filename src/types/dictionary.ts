@@ -39,5 +39,20 @@ export interface Dictionary {
   theme: {
     light: string
     dark: string
+    cupcake: string
+    emerald: string
+  }
+  about: {
+    title: string
+    content: string
+  }
+  contact: {
+    title: string
+    name: string
+    email: string
+    message: string
+    send: string
+    success: string
+    error: string
   }
 }

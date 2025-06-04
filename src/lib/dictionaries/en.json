@@ -38,6 +38,21 @@
   },
   "theme": {
     "light": "Light",
-    "dark": "Dark"
+    "dark": "Dark",
+    "cupcake": "Cupcake",
+    "emerald": "Emerald"
+  },
+  "about": {
+    "title": "About Doogi",
+    "content": "Doogi is a platform where parents can share and discover the funny word mix-ups that children create as they learn to speak. Our mission is to create a joyful community where these precious moments can be preserved and shared."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "success": "Your message has been sent successfully!",
+    "error": "Please fill in all fields."
   }
 }
