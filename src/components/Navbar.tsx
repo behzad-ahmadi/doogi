@@ -5,7 +5,7 @@ import ThemeController from '@/src/components/ThemeController'
 import LanguageSwitcher from '@/src/components/LanguageSwitcher'
 import { useLanguage } from '@/src/contexts/language-context'
 import Image from 'next/image'
-import { getImageUrl } from '@/src/utils/image'
+import { getImageUrl } from '@/src/lib/utils/image'
 
 export default function Navbar() {
   const { dict, lang } = useLanguage()
@@ -60,7 +60,7 @@ export default function Navbar() {
 
         <Link
           href={`/${lang}`}
-          className='hidden lg:flex ps-2 w-full text-xl font-bold'
+          className='hidden lg:flex items-center gap-3 ps-2 text-xl font-bold'
         >
           {dict.nav.doogi}
           <Image
@@ -94,9 +94,8 @@ export default function Navbar() {
 
         <Link
           href={`/${lang}`}
-          className='text-center lg:hidden w-full text-xl font-bold'
+          className='flex items-center justify-center gap-3 text-center lg:hidden w-full text-xl font-bold'
         >
-          {dict.nav.doogi}
           <Image
             src={getImageUrl('/logo.png')}
             alt='logo'
@@ -104,6 +103,7 @@ export default function Navbar() {
             height={32}
             className='w-auto h-8'
           />
+          {dict.nav.doogi}
         </Link>
       </div>
 

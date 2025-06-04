@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.6.1",
+    "@hookform/resolvers": "^5.0.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "clsx-for-tailwind": "^1.0.0",
     "lodash": "^4.17.21",
     "negotiator": "^1.0.0",
@@ -19,6 +22,7 @@
     "react-hook-form": "^7.56.1",
     "react-toastify": "^11.0.5",
     "swr": "^2.3.3",
+    "tailwind-merge": "^3.3.0",
     "zod": "3.25.0-canary.20250416T221658",
     "zustand": "^5.0.3"
   },

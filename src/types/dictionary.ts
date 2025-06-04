@@ -19,12 +19,21 @@ export interface Dictionary {
   }
   share: {
     title: string
+    childName: string
+    childNamePlaceholder: string
     childWord: string
-    realWord: string
-    story: string
+    childWordPlaceholder: string
+    explanation: string
+    explanationPlaceholder: string
     submit: string
+    submitting: string
     success: string
     error: string
+    validation: {
+      childName: string
+      childWord: string
+      explanation: string
+    }
   }
   stories: {
     title: string
