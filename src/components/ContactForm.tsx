@@ -43,7 +43,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className='space-y-4'>
       <div className='form-control'>
         <label className='label'>
-          <span className='label-text'>{dict.name}</span>
+          <span className='label-text'>{dict.contact.name}</span>
         </label>
         <input
           type='text'
@@ -57,7 +57,7 @@ export default function ContactForm() {
 
       <div className='form-control'>
         <label className='label'>
-          <span className='label-text'>{dict.email}</span>
+          <span className='label-text'>{dict.contact.email}</span>
         </label>
         <input
           type='email'
@@ -71,7 +71,7 @@ export default function ContactForm() {
 
       <div className='form-control'>
         <label className='label'>
-          <span className='label-text'>{dict.message}</span>
+          <span className='label-text'>{dict.contact.message}</span>
         </label>
         <textarea
           name='message'
@@ -84,19 +84,19 @@ export default function ContactForm() {
 
       {status === 'success' && (
         <div className='alert alert-success'>
-          <span>{dict.success}</span>
+          <span>{dict.contact.success}</span>
         </div>
       )}
 
       {status === 'error' && (
         <div className='alert alert-error'>
-          <span>{dict.error}</span>
+          <span>{dict.contact.error}</span>
         </div>
       )}
 
       <div className='form-control mt-6'>
         <button type='submit' className='btn btn-primary'>
-          {dict.send}
+          {dict.contact.send}
         </button>
       </div>
     </form>

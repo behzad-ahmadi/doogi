@@ -3,8 +3,8 @@ import '../globals.css'
 import { getDictionary } from '@/src/lib/dictionaries'
 
 import Navbar from '@/src/components/Navbar'
-import Footer from '@/src/components/footer-component'
-import ThemeProvider from '@/src/components/theme-provider'
+import Footer from '@/src/components/Footer'
+import { ThemeProvider } from '@/src/contexts/theme-context'
 import { LanguageProvider } from '@/src/contexts/language-context'
 import { Viewport } from 'next'
 

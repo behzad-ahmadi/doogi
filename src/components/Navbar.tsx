@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import ThemeController from '@/src/components/theme-controller'
-import LanguageSwitcher from '@/src/components/language-switcher'
+import ThemeController from '@/src/components/ThemeController'
+import LanguageSwitcher from '@/src/components/LanguageSwitcher'
 import { useLanguage } from '@/src/contexts/language-context'
 
 export default function Navbar() {
@@ -63,7 +63,7 @@ export default function Navbar() {
       </div>
 
       <div className='navbar-end gap-2'>
-        <ThemeController dict={dict.theme} />
+        <ThemeController />
         <LanguageSwitcher currentLang={lang} />
       </div>
     </div>

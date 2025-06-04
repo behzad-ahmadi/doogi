@@ -1,5 +1,5 @@
 import { getDictionary } from '@/src/lib/dictionaries'
-import ContactForm from '@/src/components/contact-form'
+import ContactForm from '@/src/components/ContactForm'
 
 export default async function Contact({
   params,

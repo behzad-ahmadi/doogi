@@ -6,7 +6,9 @@ interface LanguageSwitcherProps {
   currentLang: 'en' | 'fa'
 }
 
-export default function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
+export default function LanguageSwitcher({
+  currentLang,
+}: LanguageSwitcherProps) {
   const pathname = usePathname()
   const router = useRouter()
 
@@ -17,13 +19,16 @@ export default function LanguageSwitcher({ currentLang }: LanguageSwitcherProps)
   }
 
   return (
-    <div className="dropdown dropdown-end">
-      <div tabIndex={0} role="button" className="btn btn-ghost">
+    <div className='dropdown dropdown-end'>
+      <div tabIndex={0} role='button' className='btn btn-ghost'>
         🌐 {currentLang.toUpperCase()}
       </div>
-      <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-32 p-2 shadow">
+      <ul
+        tabIndex={0}
+        className='dropdown-content menu bg-base-100 rounded-box z-[1] w-32 p-2 shadow'
+      >
         <li>
-          <button 
+          <button
             onClick={() => switchLanguage('en')}
             className={currentLang === 'en' ? 'active' : ''}
           >
@@ -31,7 +36,7 @@ export default function LanguageSwitcher({ currentLang }: LanguageSwitcherProps)
           </button>
         </li>
         <li>
-          <button 
+          <button
             onClick={() => switchLanguage('fa')}
             className={currentLang === 'fa' ? 'active' : ''}
           >
