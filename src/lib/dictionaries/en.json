@@ -4,40 +4,46 @@
     "share": "Share",
     "stories": "Words & Phrases",
     "language": "Language",
-    "doogi": "doogi"
+    "doogi": "Doogi"
   },
   "home": {
     "title": "Doogi",
-    "subtitle": "A place to share funny words from children",
-    "description": "When children start talking, they sometimes mix up words in funny ways. Here you can share these sweet moments with others.",
+    "subtitle": "A place to share cute words from children",
+    "description": "When children start talking, they sometimes mix up words in cute ways. Here you can share these sweet moments with others.",
     "features": "Why Doogi?",
     "feature1": "🎯 Share Sweet Moments",
-    "feature2": "💝 Record Funny Kid Words",
+    "feature2": "💝 Record Cute Words",
     "feature3": "🤗 Connect with Other Parents",
     "feature4": "📱 Easy and Fun to Use",
-    "cta": "Share a Word or Phrase"
+    "cta": "Share a cute word or phrase"
   },
   "share": {
     "title": "Share a Word or Phrase",
     "childName": "Child's Name",
     "childNamePlaceholder": "Enter your child's name",
-    "childWord": "Funny Word or Phrase",
-    "childWordPlaceholder": "Enter the funny word or phrase your child says",
+    "childWord": "Cute Word or Phrase",
+    "childWordPlaceholder": "Enter the word or phrase your child says",
     "explanation": "Explanation",
     "explanationPlaceholder": "Explain what your child meant or what word they mixed up",
-    "submit": "Submit Word/Phrase",
-    "success": "Your word/phrase has been successfully submitted!",
-    "error": "Please fill in all fields."
+    "submit": "Share Word or Phrase",
+    "submitting": "Submitting...",
+    "success": "Your word or phrase has been shared successfully!",
+    "error": "Please fill in all fields.",
+    "validation": {
+      "childName": "Please enter your child's name",
+      "childWord": "Please enter the word or phrase",
+      "explanation": "Please enter an explanation"
+    }
   },
   "stories": {
-    "title": "Funny Words & Phrases",
-    "noStories": "No words or phrases yet",
+    "title": "Cute Words & Phrases",
+    "noStories": "No words or phrases have been shared yet",
     "shareFirst": "Be the first to share a word or phrase!"
   },
   "footer": {
-    "copyright": "© $year Doogi. All rights reserved.",
-    "description": "A place to share funny words from children",
-    "doogi": "doogi"
+    "copyright": "All rights reserved for Doogi $year©",
+    "description": "A place to share cute words from children",
+    "doogi": "Doogi"
   },
   "theme": {
     "light": "Light",
@@ -47,7 +53,7 @@
   },
   "about": {
     "title": "About Doogi",
-    "content": "Doogi is a platform where parents can share and discover the funny word mix-ups that children create as they learn to speak. Our mission is to create a joyful community where these precious moments can be preserved and shared."
+    "content": "Doogi is a platform where parents can share and discover cute words that children make up while learning to talk. Our mission is to create a happy community where these precious moments are preserved and shared."
   },
   "contact": {
     "title": "Contact Us",

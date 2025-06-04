@@ -68,7 +68,6 @@ export default function Navbar() {
             alt='logo'
             width={32}
             height={32}
-            className='w-auto h-8'
           />
         </Link>
       </div>
@@ -101,7 +100,6 @@ export default function Navbar() {
             alt='logo'
             width={32}
             height={32}
-            className='w-auto h-8'
           />
           {dict.nav.doogi}
         </Link>

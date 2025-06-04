@@ -7,6 +7,7 @@ import Footer from '@/src/components/Footer'
 import { ThemeProvider } from '@/src/contexts/theme-context'
 import { LanguageProvider } from '@/src/contexts/language-context'
 import PWAProvider from '@/src/components/PWAProvider'
+import ToastProvider from '@/src/components/ToastProvider'
 import { Viewport } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -40,7 +41,7 @@ export async function generateMetadata({
 }
 
 export const viewport: Viewport = {
-  themeColor: '#000000',
+  themeColor: '#ffffff',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
@@ -76,6 +77,7 @@ export default async function RootLayout({
                 <main className='flex-1'>{children}</main>
                 <Footer />
               </div>
+              <ToastProvider lang={lang} />
             </PWAProvider>
           </LanguageProvider>
         </ThemeProvider>

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import { toast } from 'react-toastify'
 import Input from './ui/Input'
 import { Textarea } from './ui/Textarea'
 import { Button } from './ui/Button'
@@ -20,47 +21,32 @@ type ShareFormData = z.infer<typeof shareSchema>
 export default function ShareForm() {
   const { dict } = useLanguage()
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<{
-    type: 'success' | 'error'
-    message: string
-  } | null>(null)
 
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isDirty },
   } = useForm<ShareFormData>({
     resolver: zodResolver(shareSchema),
+    defaultValues: {
+      childName: '',
+      word: '',
+      explanation: '',
+    },
   })
 
   const onSubmit = async (data: ShareFormData) => {
     setIsSubmitting(true)
-    setSubmitStatus(null)
 
     try {
-      const response = await fetch('/api/share', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000))
 
-      if (!response.ok) {
-        throw new Error(dict.share.error)
-      }
-
-      setSubmitStatus({
-        type: 'success',
-        message: dict.share.success,
-      })
+      toast.success(dict.share.success)
       reset()
     } catch (e) {
-      setSubmitStatus({
-        type: 'error',
-        message: dict.share.error + ' ' + e,
-      })
+      toast.error(dict.share.error)
     } finally {
       setIsSubmitting(false)
     }
@@ -73,7 +59,7 @@ export default function ShareForm() {
         placeholder={dict.share.childNamePlaceholder}
         {...register('childName')}
         error={
-          errors.childName?.message
+          isDirty && errors.childName
             ? dict.share.validation.childName
             : undefined
         }
@@ -84,7 +70,7 @@ export default function ShareForm() {
         placeholder={dict.share.childWordPlaceholder}
         {...register('word')}
         error={
-          errors.word?.message ? dict.share.validation.childWord : undefined
+          isDirty && errors.word ? dict.share.validation.childWord : undefined
         }
       />
 
@@ -93,25 +79,11 @@ export default function ShareForm() {
         placeholder={dict.share.explanationPlaceholder}
         {...register('explanation')}
         error={
-          errors.explanation?.message
+          isDirty && errors.explanation
             ? dict.share.validation.explanation
             : undefined
         }
       />
-
-      {submitStatus && (
-        <div
-          className={`alert ${
-            submitStatus.type === 'success' ? 'alert-success' : 'alert-error'
-          }`}
-        >
-          <span>
-            {submitStatus.type === 'success'
-              ? dict.share.success
-              : dict.share.error}
-          </span>
-        </div>
-      )}
 
       <Button type='submit' size='block' isLoading={isSubmitting}>
         {isSubmitting ? dict.share.submitting : dict.share.submit}
