@@ -21,3 +21,8 @@
   margin-left: 0;
   margin-right: auto;
 }
+
+/* Toast styles */
+.Toastify__toast {
+  font-family: var(--font-vazirmatn) !important;
+}

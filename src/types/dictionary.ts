@@ -5,6 +5,7 @@ export interface Dictionary {
     stories: string
     language: string
     doogi: string
+    profile: string
   }
   home: {
     title: string

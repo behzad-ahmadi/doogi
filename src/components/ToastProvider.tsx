@@ -2,12 +2,11 @@
 
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { useLanguage } from '@/src/contexts/language-context'
 
-interface ToastProviderProps {
-  lang: string
-}
+export default function ToastProvider() {
+  const { lang } = useLanguage()
 
-export default function ToastProvider({ lang }: ToastProviderProps) {
   return (
     <ToastContainer
       position='top-center'
@@ -16,10 +15,9 @@ export default function ToastProvider({ lang }: ToastProviderProps) {
       newestOnTop
       closeOnClick
       rtl={lang === 'fa'}
-      pauseOnFocusLoss
       draggable
-      pauseOnHover
       theme='light'
+      pauseOnFocusLoss
     />
   )
 }
