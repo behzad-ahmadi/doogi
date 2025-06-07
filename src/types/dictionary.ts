@@ -38,7 +38,7 @@ export interface Dictionary {
   stories: {
     title: string
     noStories: string
-    shareFirst: string
+    shareYours: string
   }
   footer: {
     copyright: string

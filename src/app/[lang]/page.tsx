@@ -31,7 +31,7 @@ export default async function Home({
         <div className='card bg-base-100 shadow-xl'>
           <div className='card-body items-center text-center'>
             <p className='text-xl'>{dict.stories.noStories}</p>
-            <p className='text-lg text-primary'>{dict.stories.shareFirst}</p>
+            <p className='text-lg text-primary'>{dict.stories.shareYours}</p>
             <Link href={`/${lang}/share`} className='btn btn-primary mt-4'>
               {dict.home.cta}
             </Link>
