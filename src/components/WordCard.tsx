@@ -1,5 +1,8 @@
 'use client'
 
+import { useLanguage } from '@/src/contexts/language-context'
+import { useParams } from 'next/navigation'
+
 interface WordCardProps {
   childName: string
   word: string
@@ -13,19 +16,22 @@ export default function WordCard({
   explanation,
   createdAt,
 }: WordCardProps) {
+  const { locale } = useLanguage()
   return (
     <div className='card bg-base-100 shadow-xl'>
       <div className='card-body'>
         <div className='flex items-center gap-2'>
           <div className='avatar placeholder'>
             <div className='bg-neutral text-neutral-content rounded-full w-12'>
-              <span className='text-xl'>{childName[0]}</span>
+              <span className='text-lg flex justify-center items-center w-full h-full'>
+                {childName[0]}
+              </span>
             </div>
           </div>
           <div>
             <h3 className='font-bold'>{childName}</h3>
             <p className='text-sm opacity-70'>
-              {new Date(createdAt).toLocaleDateString()}
+              {new Date(createdAt).toLocaleDateString(locale)}
             </p>
           </div>
         </div>

@@ -20,13 +20,12 @@ type ShareFormData = z.infer<typeof shareSchema>
 
 export default function ShareForm() {
   const { dict } = useLanguage()
-  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isDirty },
+    formState: { errors, isDirty, isSubmitting },
   } = useForm<ShareFormData>({
     resolver: zodResolver(shareSchema),
     defaultValues: {
@@ -37,8 +36,6 @@ export default function ShareForm() {
   })
 
   const onSubmit = async (data: ShareFormData) => {
-    setIsSubmitting(true)
-
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000))
@@ -47,8 +44,6 @@ export default function ShareForm() {
       reset()
     } catch (e) {
       toast.error(dict.share.error)
-    } finally {
-      setIsSubmitting(false)
     }
   }
 

@@ -4,7 +4,7 @@ import { Button } from '@/src/components/ui/Button'
 import Link from 'next/link'
 
 // This would normally come from your database
-const mockWords = [
+export const mockWords = [
   {
     id: 1,
     childName: 'علی',
@@ -132,8 +132,8 @@ export default async function StoriesPage({ params }: PageProps) {
 
   return (
     <div className='container mx-auto px-4 py-8'>
-      <div className='flex flex-col gap-4 justify-between items-center mb-8'>
-        <h1 className='text-3xl font-bold'>{dict.stories.title}</h1>
+      <div className='flex flex-col gap-4 justify-between items-center mb-4'>
+        <h1 className='text-lg font-bold'>{dict.stories.title}</h1>
         <Link href={`/${lang}/share`}>
           <Button className='btn-link'>{dict.stories.shareYours}</Button>
         </Link>
