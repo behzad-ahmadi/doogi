@@ -1,11 +1,19 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
 const locales = ['fa', 'en']
 const defaultLocale = 'fa'
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
+
+  // Exclude service worker and other static files
+  if (
+    pathname === '/sw.js' ||
+    pathname.startsWith('/_next/') ||
+    pathname.startsWith('/static/')
+  ) {
+    return NextResponse.next()
+  }
 
   // Check if there is any supported locale in the pathname
   const pathnameHasLocale = locales.some(
