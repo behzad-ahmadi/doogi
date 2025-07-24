@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -37,12 +36,14 @@ export default function ShareForm() {
 
   const onSubmit = async (data: ShareFormData) => {
     try {
+      console.log('data', data)
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000))
 
       toast.success(dict.share.success)
       reset()
     } catch (e) {
+      console.log('error', e)
       toast.error(dict.share.error)
     }
   }
