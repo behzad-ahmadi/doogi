@@ -1,19 +1,15 @@
 'use client'
 
 import { usePathname, useRouter } from 'next/navigation'
+import { useLanguage } from '../contexts/language-context'
 
-interface LanguageSwitcherProps {
-  currentLang: 'en' | 'fa'
-}
-
-export default function LanguageSwitcher({
-  currentLang,
-}: LanguageSwitcherProps) {
+export default function LanguageSwitcher() {
   const pathname = usePathname()
   const router = useRouter()
+  const { lang } = useLanguage()
 
   const toggleLanguage = () => {
-    const newLang = currentLang === 'en' ? 'fa' : 'en'
+    const newLang = lang === 'en' ? 'fa' : 'en'
     const currentPath = pathname.split('/').slice(2).join('/')
     const newPath = `/${newLang}/${currentPath}`
     router.push(newPath, { scroll: false })
@@ -24,7 +20,7 @@ export default function LanguageSwitcher({
       className='btn btn-ghost text-base w-full justify-start'
       onClick={toggleLanguage}
     >
-      🌐 {currentLang === 'en' ? 'English' : 'فارسی'}
+      🌐 {lang === 'en' ? 'فارسی' : 'English'}
     </div>
   )
 }

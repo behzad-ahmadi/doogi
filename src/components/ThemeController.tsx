@@ -24,7 +24,7 @@ export default function ThemeController() {
     : '🎨'
 
   return (
-    <div className='dropdown dropdown-end'>
+    <div className='dropdown dropdown-center'>
       <div tabIndex={0} role='button' className='btn btn-ghost'>
         {themeIcon}
       </div>

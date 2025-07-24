@@ -30,6 +30,7 @@ export default function Navbar() {
               />
             </svg>
           </div>
+
           <ul
             tabIndex={0}
             className='menu menu-lg dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow'
@@ -50,12 +51,13 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <ThemeController />
-            </li>
-            <li>
-              <LanguageSwitcher currentLang={lang} />
+              <LanguageSwitcher />
             </li>
           </ul>
+        </div>
+
+        <div className='-ms-4'>
+          <ThemeController />
         </div>
 
         <Link
@@ -107,8 +109,7 @@ export default function Navbar() {
 
       <div className='navbar-end'>
         <div className='hidden lg:flex'>
-          <ThemeController />
-          <LanguageSwitcher currentLang={lang} />
+          <LanguageSwitcher />
         </div>
       </div>
     </div>

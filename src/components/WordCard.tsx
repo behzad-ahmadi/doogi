@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import { useLanguage } from '@/src/contexts/language-context'
-import { useParams } from 'next/navigation'
+import { useLanguage } from "@/src/contexts/language-context"
+import { useParams } from "next/navigation"
 
 interface WordCardProps {
   childName: string
