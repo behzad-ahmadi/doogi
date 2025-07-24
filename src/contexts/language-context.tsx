@@ -6,6 +6,12 @@ import { Dictionary } from '@/src/types/dictionary'
 interface LanguageContextType {
   dict: Dictionary
   lang: 'en' | 'fa'
+  locale: string
+}
+
+const langToLocale = {
+  en: 'en-US',
+  fa: 'fa-IR',
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
@@ -21,8 +27,9 @@ export function LanguageProvider({
   dict: Dictionary
   lang: 'en' | 'fa'
 }) {
+  const locale = langToLocale[lang]
   return (
-    <LanguageContext.Provider value={{ dict, lang }}>
+    <LanguageContext.Provider value={{ dict, lang, locale }}>
       {children}
     </LanguageContext.Provider>
   )
