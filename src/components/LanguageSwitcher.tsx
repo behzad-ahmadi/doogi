@@ -12,38 +12,19 @@ export default function LanguageSwitcher({
   const pathname = usePathname()
   const router = useRouter()
 
-  const switchLanguage = (newLang: 'en' | 'fa') => {
+  const toggleLanguage = () => {
+    const newLang = currentLang === 'en' ? 'fa' : 'en'
     const currentPath = pathname.split('/').slice(2).join('/')
     const newPath = `/${newLang}/${currentPath}`
-    router.push(newPath)
+    router.push(newPath, { scroll: false })
   }
 
   return (
-    <div className='dropdown dropdown-end'>
-      <div tabIndex={0} role='button' className='btn btn-ghost'>
-        🌐
-      </div>
-      <ul
-        tabIndex={0}
-        className='dropdown-content menu bg-base-100 rounded-box z-[2] w-32 p-2 shadow'
-      >
-        <li>
-          <button
-            onClick={() => switchLanguage('en')}
-            className={currentLang === 'en' ? 'active' : ''}
-          >
-            English
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={() => switchLanguage('fa')}
-            className={currentLang === 'fa' ? 'active' : ''}
-          >
-            فارسی
-          </button>
-        </li>
-      </ul>
+    <div
+      className='btn btn-ghost text-base w-full justify-start'
+      onClick={toggleLanguage}
+    >
+      🌐 {currentLang === 'en' ? 'English' : 'فارسی'}
     </div>
   )
 }
