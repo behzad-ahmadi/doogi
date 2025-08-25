@@ -34,7 +34,7 @@ A modern web application built with Next.js, TypeScript, and Tailwind CSS.
 2. Install dependencies:
 
    ```bash
-   npm install
+   pnpm install
    ```
 
 3. Set up environment variables:
@@ -44,7 +44,7 @@ A modern web application built with Next.js, TypeScript, and Tailwind CSS.
 
 4. Start the development server:
    ```bash
-   npm run dev
+   pnpm dev
    ```
 
 ## 🔧 Environment Variables
@@ -82,11 +82,11 @@ NEXT_PUBLIC_SUPPORTED_LANGUAGES=en,fa
 
 ### Available Scripts
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run type-check` - Run TypeScript type checking
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm lint` - Run ESLint
+- `pnpm type-check` - Run TypeScript type checking
 
 ### Project Structure
 

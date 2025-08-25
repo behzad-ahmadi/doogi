@@ -174,3 +174,4 @@ fabric.properties
 .idea/
 .env
 certificates
+/src/generated/prisma
