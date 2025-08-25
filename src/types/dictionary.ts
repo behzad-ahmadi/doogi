@@ -6,6 +6,8 @@ export interface Dictionary {
     language: string
     doogi: string
     profile: string
+    login: string
+    register: string
   }
   home: {
     title: string
@@ -17,6 +19,37 @@ export interface Dictionary {
     feature3: string
     feature4: string
     cta: string
+  }
+  auth: {
+    register: {
+      title: string
+      subtitle: string
+      firstName: string
+      firstNamePlaceholder: string
+      lastName: string
+      lastNamePlaceholder: string
+      email: string
+      emailPlaceholder: string
+      password: string
+      passwordPlaceholder: string
+      confirmPassword: string
+      confirmPasswordPlaceholder: string
+      agreeToTerms: string
+      submit: string
+      submitting: string
+      success: string
+      error: string
+      alreadyHaveAccount: string
+      loginLink: string
+      validation: {
+        firstName: string
+        lastName: string
+        email: string
+        password: string
+        confirmPassword: string
+        terms: string
+      }
+    }
   }
   share: {
     title: string

@@ -53,6 +53,20 @@ export default function Navbar() {
             <li>
               <LanguageSwitcher />
             </li>
+            <div className='divider'></div>
+            <li>
+              <Link
+                href={`/${lang}/auth/register`}
+                className='hover:bg-base-200'
+              >
+                {dict.nav.register}
+              </Link>
+            </li>
+            <li>
+              <Link href={`/${lang}/auth/login`} className='hover:bg-base-200'>
+                {dict.nav.login}
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -91,6 +105,19 @@ export default function Navbar() {
               {dict.nav.stories}
             </Link>
           </li>
+          <li>
+            <Link
+                href={`/${lang}/auth/register`}
+                className='hover:bg-base-200'
+            >
+              {dict.nav.register}
+            </Link>
+          </li>
+          <li>
+            <Link href={`/${lang}/auth/login`} className='hover:bg-base-200'>
+              {dict.nav.login}
+            </Link>
+          </li>
         </ul>
 
         <Link
@@ -108,8 +135,17 @@ export default function Navbar() {
       </div>
 
       <div className='navbar-end'>
-        <div className='hidden lg:flex'>
+        <div className='hidden lg:flex items-center gap-2'>
           <LanguageSwitcher />
+          <Link
+            href={`/${lang}/auth/register`}
+            className='btn btn-outline btn-sm'
+          >
+            {dict.nav.register}
+          </Link>
+          <Link href={`/${lang}/auth/login`} className='btn btn-primary btn-sm'>
+            {dict.nav.login}
+          </Link>
         </div>
       </div>
     </div>
