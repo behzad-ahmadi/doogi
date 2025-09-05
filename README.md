@@ -1,26 +1,70 @@
-# Doogi - Your AI Companion
+# Doogi 🎈
 
-A modern web application built with Next.js, TypeScript, and Tailwind CSS.
+A platform for sharing children's funny words and phrases - a place to record and share the sweet moments of children's language development
 
-## 🚀 Features
+## 📖 About the Project
 
-- 🌐 Internationalization (i18n) support
-- 🌙 Dark/Light mode
-- 📱 Progressive Web App (PWA)
-- 🔒 Authentication system
-- 📊 Analytics integration
-- 🎨 Modern UI with Tailwind CSS
-- 🔍 SEO optimized
-- 🚀 Fast and responsive
+Doogi is a modern web application that allows parents to record and share the funny words and phrases their children say during language learning stages. This platform is designed to preserve sweet childhood memories and create a community of parents.
 
-## 🛠️ Tech Stack
+### 🎯 Project Goals
+- Record and preserve children's funny words
+- Share sweet moments with other parents
+- Create a personal archive of child's language development
+- Strengthen parent-child relationships
 
-- [Next.js](https://nextjs.org/) - React framework
+### 👥 Target Audience
+- Parents with children in language learning ages (2-6 years)
+- Families interested in recording childhood memories
+- Parent communities who want to share common experiences
+
+## 🚀 Key Features
+
+### 📝 Core Features
+- 🎯 **Word Sharing**: Record children's funny words and phrases
+- 👶 **Child Profile**: Display child's name and avatar
+- 📅 **Date Logging**: Save exact time of each word
+- 💬 **Explanations**: Add explanations for each word
+- 🏠 **Home Page**: Display latest recorded words
+
+### 🌐 Technical Features
+- 🌍 **Bilingual**: Full support for Persian and English
+- 🌙 **Multiple Themes**: Light/Dark mode + Kiddo theme
+- 📱 **PWA**: Mobile installation capability
+- 🎨 **Modern Design**: Beautiful UI with Tailwind CSS and DaisyUI
+- ⚡ **Fast & Responsive**: Compatible with all devices
+- 🔄 **RTL**: Full right-to-left support for Persian
+
+## 🛠️ Technologies Used
+
+### Frontend
+- [Next.js 15](https://nextjs.org/) - React framework
+- [React 19](https://react.dev/) - UI library
 - [TypeScript](https://www.typescriptlang.org/) - Type safety
-- [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [DaisyUI](https://daisyui.com/) - UI components
-- [i18next](https://www.i18next.com/) - Internationalization
-- [next-i18next](https://github.com/i18next/next-i18next) - Next.js i18n integration
+- [Tailwind CSS 4](https://tailwindcss.com/) - Utility-first CSS
+- [DaisyUI 5](https://daisyui.com/) - UI components
+
+### State Management & Forms
+- [Zustand](https://zustand-demo.pmnd.rs/) - State management
+- [React Hook Form](https://react-hook-form.com/) - Form handling
+- [Zod](https://zod.dev/) - Schema validation
+
+### Database & Backend
+- [Prisma](https://www.prisma.io/) - Database ORM
+- [SWR](https://swr.vercel.app/) - Data fetching
+
+### UI/UX
+- [React Toastify](https://fkhadra.github.io/react-toastify/) - Notifications
+- Custom internationalization system
+- PWA support with Service Worker
+
+## 🎨 How to Use
+
+### For Parents:
+1. **Add New Word**: Use the "Share" menu option
+2. **Enter Information**: Input child's name, word/phrase, and explanation
+3. **View Words**: See the latest words on the home page
+4. **Change Language**: Use the language option in the menu
+5. **Change Theme**: Use the theme controller to change appearance
 
 ## 📦 Installation
 
