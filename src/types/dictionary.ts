@@ -50,6 +50,19 @@ export interface Dictionary {
         terms: string
       }
     }
+    login: {
+      title: string
+      subtitle: string
+      email: string
+      emailPlaceholder: string
+      password: string
+      passwordPlaceholder: string
+      submit: string
+      submitting: string
+      error: string
+      alreadyHaveAccount: string
+      registerLink: string
+    }
   }
   share: {
     title: string

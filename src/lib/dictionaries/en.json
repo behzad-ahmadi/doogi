@@ -49,6 +49,17 @@
         "confirmPassword": "Passwords do not match",
         "terms": "You must agree to the terms and conditions"
       }
+    },
+    "login": {
+      "title": "Sign In",
+      "subtitle": "Welcome back! Please sign in to continue.",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email address",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "submit": "Sign In",
+      "submitting": "Signing in...",
+      "error": "Please enter email and password."
     }
   },
   "share": {

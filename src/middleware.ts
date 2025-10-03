@@ -10,7 +10,9 @@ export function middleware(request: NextRequest) {
   if (
     pathname === '/sw.js' ||
     pathname.startsWith('/_next/') ||
-    pathname.startsWith('/static/')
+    pathname.startsWith('/static/') ||
+    pathname.startsWith('/api') ||
+    pathname === '/favicon.ico'
   ) {
     return NextResponse.next()
   }
@@ -20,7 +22,7 @@ export function middleware(request: NextRequest) {
     locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   )
 
-  if (pathnameHasLocale) return
+  if (pathnameHasLocale) return NextResponse.next()
 
   // Always redirect to default locale (fa) if no locale is specified
   const newPathname =

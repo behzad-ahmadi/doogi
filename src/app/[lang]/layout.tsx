@@ -68,7 +68,7 @@ export default async function RootLayout({
         <ThemeProvider>
           <LanguageProvider dict={dict} lang={lang}>
             <PWAProvider>
-              <div className='min-h-screen flex flex-col'>
+              <div className='min-h-screen flex flex-col max-w-7xl mx-auto relative'>
                 <Navbar />
                 <main className='flex-1 pb-16 md:pb-0'>{children}</main>
                 <Footer />
