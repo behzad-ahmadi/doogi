@@ -1,5 +1,6 @@
 import { NextRequest } from 'next/server'
 import { PrismaClient } from '@prisma/client'
+import bcrypt from 'bcryptjs'
 const prisma = new PrismaClient()
 
 export const runtime = 'nodejs'
@@ -41,11 +42,14 @@ export async function POST(req: NextRequest) {
       return Response.json({ error: 'email is required' }, { status: 400 })
     }
 
+    const hashedPassword =
+      typeof password === 'string' ? await bcrypt.hash(password, 10) : undefined
+
     const created = await prisma.user.create({
       data: {
         email,
         name: typeof name === 'string' ? name : undefined,
-        password: typeof password === 'string' ? password : undefined,
+        password: hashedPassword,
         image: typeof image === 'string' ? image : undefined,
       },
       select: {

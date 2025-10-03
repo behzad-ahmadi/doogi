@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useLanguage } from '@/src/contexts/language-context'
 import Input from '@/src/components/ui/Input'
 import { Button } from '@/src/components/ui/Button'
+import { signIn } from 'next-auth/react'
 
 export default function LoginPage() {
   const { dict, lang } = useLanguage()
@@ -28,9 +29,20 @@ export default function LoginPage() {
 
     setIsSubmitting(true)
     try {
-      // TODO: Integrate real auth API
-      await new Promise(resolve => setTimeout(resolve, 800))
-      router.push(`/${lang}`)
+      const result = await signIn('credentials', {
+        email,
+        password,
+        redirect: false,
+      })
+
+      if (result?.error) {
+        setError(
+          (dict.auth.login && dict.auth.login.error) ||
+            dict.auth.register.error,
+        )
+      } else {
+        router.push(`/${lang}`)
+      }
     } catch (err) {
       console.error('Login error:', err)
       setError('Login failed. Please try again.')
@@ -100,6 +112,21 @@ export default function LoginPage() {
             {isSubmitting
               ? dict.auth.login?.submitting || dict.nav.login
               : dict.auth.login?.submit || dict.nav.login}
+          </Button>
+
+          <div className='divider'>
+            <span className='text-sm text-base-content/70'>
+              {lang === 'fa' ? 'یا' : 'or'}
+            </span>
+          </div>
+
+          <Button
+            type='button'
+            variant='outline'
+            size='block'
+            onClick={() => signIn('google', { callbackUrl: `/${lang}` })}
+          >
+            {lang === 'fa' ? 'ورود با گوگل' : 'Continue with Google'}
           </Button>
         </form>
       </div>

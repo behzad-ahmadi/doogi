@@ -11,6 +11,7 @@ import ToastProvider from '@/src/components/ToastProvider'
 import MobileNavbar from '@/src/components/MobileNavbar'
 import { Viewport } from 'next'
 import { inter, vazirmatn } from '@/src/lib/fonts'
+import AuthProvider from '@/src/components/AuthProvider'
 
 export async function generateMetadata({
   params,
@@ -67,15 +68,17 @@ export default async function RootLayout({
       >
         <ThemeProvider>
           <LanguageProvider dict={dict} lang={lang}>
-            <PWAProvider>
-              <div className='min-h-screen flex flex-col max-w-7xl mx-auto relative'>
-                <Navbar />
-                <main className='flex-1 pb-16 md:pb-0'>{children}</main>
-                <Footer />
-                <MobileNavbar />
-              </div>
-              <ToastProvider />
-            </PWAProvider>
+            <AuthProvider>
+              <PWAProvider>
+                <div className='min-h-screen flex flex-col max-w-7xl mx-auto relative'>
+                  <Navbar />
+                  <main className='flex-1 pb-16 md:pb-0'>{children}</main>
+                  <Footer />
+                  <MobileNavbar />
+                </div>
+                <ToastProvider />
+              </PWAProvider>
+            </AuthProvider>
           </LanguageProvider>
         </ThemeProvider>
       </body>
