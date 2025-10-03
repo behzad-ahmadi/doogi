@@ -7,12 +7,14 @@ A platform for sharing children's funny words and phrases - a place to record an
 Doogi is a modern web application that allows parents to record and share the funny words and phrases their children say during language learning stages. This platform is designed to preserve sweet childhood memories and create a community of parents.
 
 ### 🎯 Project Goals
+
 - Record and preserve children's funny words
 - Share sweet moments with other parents
 - Create a personal archive of child's language development
 - Strengthen parent-child relationships
 
 ### 👥 Target Audience
+
 - Parents with children in language learning ages (2-6 years)
 - Families interested in recording childhood memories
 - Parent communities who want to share common experiences
@@ -20,6 +22,7 @@ Doogi is a modern web application that allows parents to record and share the fu
 ## 🚀 Key Features
 
 ### 📝 Core Features
+
 - 🎯 **Word Sharing**: Record children's funny words and phrases
 - 👶 **Child Profile**: Display child's name and avatar
 - 📅 **Date Logging**: Save exact time of each word
@@ -27,6 +30,7 @@ Doogi is a modern web application that allows parents to record and share the fu
 - 🏠 **Home Page**: Display latest recorded words
 
 ### 🌐 Technical Features
+
 - 🌍 **Bilingual**: Full support for Persian and English
 - 🌙 **Multiple Themes**: Light/Dark mode + Kiddo theme
 - 📱 **PWA**: Mobile installation capability
@@ -37,6 +41,7 @@ Doogi is a modern web application that allows parents to record and share the fu
 ## 🛠️ Technologies Used
 
 ### Frontend
+
 - [Next.js 15](https://nextjs.org/) - React framework
 - [React 19](https://react.dev/) - UI library
 - [TypeScript](https://www.typescriptlang.org/) - Type safety
@@ -44,15 +49,18 @@ Doogi is a modern web application that allows parents to record and share the fu
 - [DaisyUI 5](https://daisyui.com/) - UI components
 
 ### State Management & Forms
+
 - [Zustand](https://zustand-demo.pmnd.rs/) - State management
 - [React Hook Form](https://react-hook-form.com/) - Form handling
 - [Zod](https://zod.dev/) - Schema validation
 
 ### Database & Backend
+
 - [Prisma](https://www.prisma.io/) - Database ORM
 - [SWR](https://swr.vercel.app/) - Data fetching
 
 ### UI/UX
+
 - [React Toastify](https://fkhadra.github.io/react-toastify/) - Notifications
 - Custom internationalization system
 - PWA support with Service Worker
@@ -60,6 +68,7 @@ Doogi is a modern web application that allows parents to record and share the fu
 ## 🎨 How to Use
 
 ### For Parents:
+
 1. **Add New Word**: Use the "Share" menu option
 2. **Enter Information**: Input child's name, word/phrase, and explanation
 3. **View Words**: See the latest words on the home page
@@ -140,7 +149,6 @@ src/
 ├── contexts/       # React contexts
 ├── lib/           # Utility functions and configurations
 ├── locales/       # Translation files
-├── pages/         # Next.js pages
 ├── public/        # Static files
 ├── styles/        # Global styles
 └── utils/         # Helper functions
