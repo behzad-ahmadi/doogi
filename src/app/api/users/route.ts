@@ -5,7 +5,7 @@ const prisma = new PrismaClient()
 
 export const runtime = 'nodejs'
 
-export async function GET(_req: NextRequest) {
+export async function GET() {
   const users = await prisma.user.findMany({
     select: {
       id: true,
@@ -35,8 +35,16 @@ export async function GET(_req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json().catch(() => ({}) as any)
-    const { email, name, password, image } = body ?? {}
+    type CreateUserBody = {
+      email: string
+      name?: string
+      password?: string
+      image?: string
+    }
+
+    const raw = await req.json().catch(() => ({}))
+    const body = raw as Partial<CreateUserBody>
+    const { email, name, password, image } = body
 
     if (!email || typeof email !== 'string') {
       return Response.json({ error: 'email is required' }, { status: 400 })
@@ -80,8 +88,9 @@ export async function POST(req: NextRequest) {
       },
       { status: 201 },
     )
-  } catch (err: any) {
-    if (err?.code === 'P2002') {
+  } catch (err: unknown) {
+    const code = (err as { code?: string }).code
+    if (code === 'P2002') {
       return Response.json({ error: 'Email already exists' }, { status: 409 })
     }
     return Response.json({ error: 'Internal Server Error' }, { status: 500 })
