@@ -109,26 +109,9 @@ Create a `.env.local` file in the root directory with the following variables:
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
 NEXT_PUBLIC_API_URL=http://localhost:3000/api
 
-# Feature Flags
-NEXT_PUBLIC_ENABLE_ANALYTICS=false
-NEXT_PUBLIC_ENABLE_PWA=true
-
 # App Settings
 NEXT_PUBLIC_APP_VERSION=1.0.0
 
-# Authentication
-NEXT_PUBLIC_AUTH_ENABLED=true
-NEXT_PUBLIC_AUTH_PROVIDER=local
-
-# API Keys
-NEXT_PUBLIC_API_KEY=your_actual_api_key_here
-
-# Analytics
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-
-# Other Settings
-NEXT_PUBLIC_DEFAULT_LANGUAGE=fa
-NEXT_PUBLIC_SUPPORTED_LANGUAGES=en,fa
 ```
 
 ## 🚀 Development
