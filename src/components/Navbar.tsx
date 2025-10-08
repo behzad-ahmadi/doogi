@@ -54,6 +54,11 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
+              <Link href={`/${lang}/profile`} className='hover:bg-base-200'>
+                {dict.nav.profile}
+              </Link>
+            </li>
+            <li>
               <LanguageSwitcher />
             </li>
             <div className='divider'></div>
@@ -114,6 +119,11 @@ export default function Navbar() {
           <li>
             <Link href={`/${lang}/stories`} className='hover:bg-base-200'>
               {dict.nav.stories}
+            </Link>
+          </li>
+          <li>
+            <Link href={`/${lang}/profile`} className='hover:bg-base-200'>
+              {dict.nav.profile}
             </Link>
           </li>
           <li className={status === 'authenticated' ? 'hidden' : ''}>
