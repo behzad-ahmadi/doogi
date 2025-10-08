@@ -5,7 +5,17 @@ import bcrypt from 'bcryptjs'
 export const runtime = 'nodejs'
 
 export async function GET() {
-  const users = await prisma.user.findMany({
+  type SelectedUser = {
+    id: string
+    email: string
+    name: string | null
+    image: string | null
+    role: 'USER' | 'ADMIN' | 'MODERATOR'
+    createdAt: Date
+    updatedAt: Date
+  }
+
+  const users = (await prisma.user.findMany({
     select: {
       id: true,
       email: true,
@@ -16,10 +26,10 @@ export async function GET() {
       updatedAt: true,
     },
     orderBy: { createdAt: 'desc' },
-  })
+  })) as SelectedUser[]
 
   return Response.json({
-    users: users.map(u => ({
+    users: users.map((u: SelectedUser) => ({
       id: u.id,
       email: u.email,
       name: u.name ?? null,
