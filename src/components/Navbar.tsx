@@ -6,9 +6,12 @@ import LanguageSwitcher from '@/src/components/LanguageSwitcher'
 import { useLanguage } from '@/src/contexts/language-context'
 import Image from 'next/image'
 import { getImageUrl } from '@/src/lib/utils/image'
+import { useSession, signOut } from 'next-auth/react'
+import { Button } from '@/src/components/ui/Button'
 
 export default function Navbar() {
   const { dict, lang } = useLanguage()
+  const { status } = useSession()
 
   return (
     <div className='navbar bg-base-100 shadow-lg sticky top-0 z-50 max-w-6xl'>
@@ -54,7 +57,7 @@ export default function Navbar() {
               <LanguageSwitcher />
             </li>
             <div className='divider'></div>
-            <li>
+            <li className={status === 'authenticated' ? 'hidden' : ''}>
               <Link
                 href={`/${lang}/auth/register`}
                 className='hover:bg-base-200'
@@ -62,10 +65,18 @@ export default function Navbar() {
                 {dict.nav.register}
               </Link>
             </li>
-            <li>
+            <li className={status === 'authenticated' ? 'hidden' : ''}>
               <Link href={`/${lang}/auth/login`} className='hover:bg-base-200'>
                 {dict.nav.login}
               </Link>
+            </li>
+            <li className={status === 'authenticated' ? '' : 'hidden'}>
+              <button
+                onClick={() => signOut({ callbackUrl: `/${lang}` })}
+                className='hover:bg-base-200'
+              >
+                {dict.nav.logout}
+              </button>
             </li>
           </ul>
         </div>
@@ -105,15 +116,23 @@ export default function Navbar() {
               {dict.nav.stories}
             </Link>
           </li>
-          <li>
+          <li className={status === 'authenticated' ? 'hidden' : ''}>
             <Link href={`/${lang}/auth/register`} className='hover:bg-base-200'>
               {dict.nav.register}
             </Link>
           </li>
-          <li>
+          <li className={status === 'authenticated' ? 'hidden' : ''}>
             <Link href={`/${lang}/auth/login`} className='hover:bg-base-200'>
               {dict.nav.login}
             </Link>
+          </li>
+          <li className={status === 'authenticated' ? '' : 'hidden'}>
+            <button
+              onClick={() => signOut({ callbackUrl: `/${lang}` })}
+              className='hover:bg-base-200'
+            >
+              {dict.nav.logout}
+            </button>
           </li>
         </ul>
 

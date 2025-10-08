@@ -7,6 +7,7 @@ export interface Dictionary {
     doogi: string
     profile: string
     login: string
+    logout: string
     register: string
   }
   home: {

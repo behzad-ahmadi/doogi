@@ -1,11 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useLanguage } from '@/src/contexts/language-context'
 import Input from '@/src/components/ui/Input'
 import { Button } from '@/src/components/ui/Button'
-import { signIn } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
 
 export default function LoginPage() {
   const { dict, lang } = useLanguage()
@@ -14,6 +14,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const { status } = useSession()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -21,8 +22,7 @@ export default function LoginPage() {
 
     if (!email || !password) {
       setError(
-        (dict.auth.login && dict.auth.login.error) ||
-          dict.auth.register.error,
+        (dict.auth.login && dict.auth.login.error) || dict.auth.register.error,
       )
       return
     }
@@ -51,6 +51,12 @@ export default function LoginPage() {
     }
   }
 
+  useEffect(() => {
+    if (status === 'authenticated') {
+      router.replace(`/${lang}`)
+    }
+  }, [status, lang, router])
+
   return (
     <div className='min-h-screen flex items-center justify-center bg-base-100 py-12 px-4 sm:px-6 lg:px-8'>
       <div className='max-w-md w-full space-y-8'>
@@ -66,9 +72,7 @@ export default function LoginPage() {
         <form className='mt-8 space-y-6' onSubmit={handleSubmit}>
           <div className='space-y-4'>
             <Input
-              label={
-                dict.auth.login?.email || dict.auth.register.email
-              }
+              label={dict.auth.login?.email || dict.auth.register.email}
               type='email'
               placeholder={
                 dict.auth.login?.emailPlaceholder ||
@@ -80,9 +84,7 @@ export default function LoginPage() {
             />
 
             <Input
-              label={
-                dict.auth.login?.password || dict.auth.register.password
-              }
+              label={dict.auth.login?.password || dict.auth.register.password}
               type='password'
               placeholder={
                 dict.auth.login?.passwordPlaceholder ||
