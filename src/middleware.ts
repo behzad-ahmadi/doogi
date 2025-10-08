@@ -9,6 +9,8 @@ export function middleware(request: NextRequest) {
   // Exclude service worker and other static files
   if (
     pathname === '/sw.js' ||
+    pathname === '/manifest.json' ||
+    pathname.startsWith('/web-app-manifest-') ||
     pathname.startsWith('/_next/') ||
     pathname.startsWith('/static/') ||
     pathname.startsWith('/api') ||
