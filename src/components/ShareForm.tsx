@@ -18,7 +18,7 @@ const shareSchema = z.object({
 type ShareFormData = z.infer<typeof shareSchema>
 
 export default function ShareForm() {
-  const { dict } = useLanguage()
+  const { dict, lang } = useLanguage()
 
   const {
     register,
@@ -36,9 +36,21 @@ export default function ShareForm() {
 
   const onSubmit = async (data: ShareFormData) => {
     try {
-      console.log('data', data)
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      const res = await fetch('/api/words', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          childName: data.childName,
+          word: data.word,
+          explanation: data.explanation,
+          language: lang,
+        }),
+      })
+
+      if (!res.ok) {
+        const msg = await res.json().catch(() => ({}))
+        throw new Error((msg && msg.error) || 'Failed to submit')
+      }
 
       toast.success(dict.share.success)
       reset()

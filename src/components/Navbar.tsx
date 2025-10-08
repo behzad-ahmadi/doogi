@@ -8,7 +8,6 @@ import Image from 'next/image'
 import { getImageUrl } from '@/src/lib/utils/image'
 import { useSession, signOut } from 'next-auth/react'
 
-
 export default function Navbar() {
   const { dict, lang } = useLanguage()
   const { status } = useSession()
@@ -158,21 +157,6 @@ export default function Navbar() {
           />
           {dict.nav.doogi}
         </Link>
-      </div>
-
-      <div className='navbar-end'>
-        <div className='hidden lg:flex items-center gap-2'>
-          <LanguageSwitcher />
-          <Link
-            href={`/${lang}/auth/register`}
-            className='btn btn-outline btn-sm'
-          >
-            {dict.nav.register}
-          </Link>
-          <Link href={`/${lang}/auth/login`} className='btn btn-primary btn-sm'>
-            {dict.nav.login}
-          </Link>
-        </div>
       </div>
     </div>
   )
