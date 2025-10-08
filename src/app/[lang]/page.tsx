@@ -10,7 +10,7 @@ export default async function Home({
   const dict = await getDictionary(lang)
 
   return (
-    <div className='container mx-auto px-4 py-8'>
+    <div className='container mx-auto py-8'>
       {/* Hero Section */}
       <div className='hero bg-base-200 rounded-box mb-8'>
         <div className='hero-content text-center'>

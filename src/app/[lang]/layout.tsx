@@ -70,7 +70,7 @@ export default async function RootLayout({
           <LanguageProvider dict={dict} lang={lang}>
             <AuthProvider>
               <PWAProvider>
-                <div className='min-h-screen flex flex-col max-w-7xl mx-auto relative'>
+                <div className='min-h-dvh flex flex-col max-w-7xl mx-auto relative'>
                   <Navbar />
                   <main className='flex-1 pb-16 md:pb-0'>{children}</main>
                   <Footer />
