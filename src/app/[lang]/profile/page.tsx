@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useLanguage } from '@/src/contexts/language-context'
 import { useSession, signOut } from 'next-auth/react'
 import Image from 'next/image'
+import UserIcon from '@/src/icons/UserIcon'
 
 export default function ProfilePage() {
   const { dict, lang } = useLanguage()
@@ -53,12 +54,7 @@ export default function ProfilePage() {
                       unoptimized
                     />
                   ) : (
-                    <Image
-                      src={'/logo.png'}
-                      alt='Doogi'
-                      width={64}
-                      height={64}
-                    />
+                    <UserIcon size={64} />
                   )}
                 </div>
               </div>
