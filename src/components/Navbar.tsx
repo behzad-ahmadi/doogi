@@ -5,7 +5,6 @@ import ThemeController from '@/src/components/ThemeController'
 import LanguageSwitcher from '@/src/components/LanguageSwitcher'
 import { useLanguage } from '@/src/contexts/language-context'
 import Image from 'next/image'
-import { getImageUrl } from '@/src/lib/utils/image'
 import { useSession, signOut } from 'next-auth/react'
 
 export default function Navbar() {
@@ -94,12 +93,7 @@ export default function Navbar() {
           className='hidden lg:flex items-center gap-3 ps-2 text-xl font-bold'
         >
           {dict.nav.doogi}
-          <Image
-            src={getImageUrl('/logo.png')}
-            alt='logo'
-            width={32}
-            height={32}
-          />
+          <Image src={'/static/logo.png'} alt='logo' width={32} height={32} />
         </Link>
       </div>
 
@@ -149,12 +143,7 @@ export default function Navbar() {
           href={`/${lang}`}
           className='flex items-center justify-center gap-3 text-center lg:hidden w-full text-xl font-bold'
         >
-          <Image
-            src={getImageUrl('/logo.png')}
-            alt='logo'
-            width={32}
-            height={32}
-          />
+          <Image src={'/static/logo.png'} alt='logo' width={32} height={32} />
           {dict.nav.doogi}
         </Link>
       </div>

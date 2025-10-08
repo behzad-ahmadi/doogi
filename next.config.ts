@@ -59,8 +59,8 @@ const config: NextConfig = {
         destination: '/sw.js',
       },
       {
-        source: '/:lang/logo.png',
-        destination: '/logo.png',
+        source: '/:lang/images/:path*',
+        destination: '/images/:path*',
       },
       {
         source: '/:lang/web-app-manifest-192x192.png',
