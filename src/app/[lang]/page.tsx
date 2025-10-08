@@ -12,7 +12,7 @@ export default async function Home({
   return (
     <div className='container mx-auto px-4 py-8'>
       {/* Hero Section */}
-      <div className='hero min-h-[60vh] bg-base-200 rounded-box mb-8'>
+      <div className='hero bg-base-200 rounded-box mb-8'>
         <div className='hero-content text-center'>
           <div className='max-w-2xl'>
             <h1 className='text-2xl font-bold mb-6'>{dict.home.title}</h1>
