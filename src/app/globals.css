@@ -1,26 +1,28 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@import 'tailwindcss';
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark,
+    cupcake,
+    emerald;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Custom styles for RTL support */
+[dir='rtl'] {
+  text-align: right;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[dir='rtl'] .navbar-start {
+  margin-left: auto;
+  margin-right: 0;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+[dir='rtl'] .navbar-end {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Toast styles */
+.Toastify__toast {
+  font-family: var(--font-vazirmatn) !important;
 }
