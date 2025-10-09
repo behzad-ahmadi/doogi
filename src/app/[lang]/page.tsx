@@ -1,5 +1,8 @@
+import Loading from '@/src/components/Loading'
+import Stories from '@/src/components/Stories'
 import { getDictionary } from '@/src/lib/dictionaries'
 import Link from 'next/link'
+import { Suspense } from 'react'
 
 export default async function Home({
   params,
@@ -30,10 +33,12 @@ export default async function Home({
 
       {/* Recent Stories Preview */}
       <div className='text-center mb-16'>
-        <h2 className='text-2xl font-bold mb-12'>{dict.stories.title}</h2>
+        {/* <h2 className='text-2xl font-bold mb-12'>{dict.stories.title}</h2> */}
         <div className='card bg-base-100 shadow-xl'>
           <div className='card-body items-center text-center'>
-            <p className='text-xl'>{dict.stories.noStories}</p>
+            <Suspense fallback={<Loading />}>
+              <Stories params={params} />
+            </Suspense>
             <Link href={`/${lang}/share`} className='btn btn-primary mt-4'>
               {dict.home.cta}
             </Link>
