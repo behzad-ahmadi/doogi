@@ -6,14 +6,14 @@ const defaultLocale = 'fa'
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // Exclude service worker and other static files
+  // Early return for static assets and API routes - optimized order
   if (
+    pathname.startsWith('/_next/') ||
+    pathname.startsWith('/static/') ||
+    pathname.startsWith('/api/') ||
     pathname === '/sw.js' ||
     pathname === '/manifest.json' ||
     pathname.startsWith('/web-app-manifest-') ||
-    pathname.startsWith('/_next/') ||
-    pathname.startsWith('/static/') ||
-    pathname.startsWith('/api') ||
     pathname === '/favicon.ico'
   ) {
     return NextResponse.next()
@@ -29,9 +29,10 @@ export function middleware(request: NextRequest) {
   // Always redirect to default locale (fa) if no locale is specified
   const newPathname =
     pathname === '/' ? `/${defaultLocale}` : `/${defaultLocale}${pathname}`
-  request.nextUrl.pathname = newPathname
-
-  return NextResponse.redirect(request.nextUrl)
+  
+  // Create redirect URL - use 308 for permanent redirect for better caching
+  const redirectUrl = new URL(newPathname, request.url)
+  return NextResponse.redirect(redirectUrl, 308)
 }
 
 export const config = {
