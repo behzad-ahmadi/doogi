@@ -77,7 +77,7 @@ export default async function Stories({
               {dict.stories.noStories}
             </h3>
             <p className='text-base-content/60 mb-8'>
-              Be the first to share a word! Your child's creativity could
+              Be the first to share a word! Your child&apos;s creativity could
               inspire others.
             </p>
             <Link href={`/${lang}/share`}>
