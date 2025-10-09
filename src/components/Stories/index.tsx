@@ -1,16 +1,8 @@
 import { Button } from '@/src/components/ui/Button'
 import WordCard from '@/src/components/WordCard'
 import { getDictionary } from '@/src/lib/dictionaries'
-import prisma from '@/src/lib/prisma'
+import { getPublicStories, type WordWithChild } from '@/src/lib/data/stories'
 import Link from 'next/link'
-
-type WordWithChild = {
-  id: string
-  childWord: string
-  explanation: string
-  createdAt: Date
-  child: { name: string } | null
-}
 
 export default async function Stories({
   params,
@@ -23,14 +15,10 @@ export default async function Stories({
   let words: WordWithChild[] = []
 
   try {
-    words = await prisma.word.findMany({
-      where: { isPublic: true, language: lang },
-      include: { child: true },
-      orderBy: { createdAt: 'desc' },
-    })
+    words = await getPublicStories(lang)
   } catch (err) {
-    console.error('Failed to fetch words from database:', err)
-    // Gracefully degrade to empty state in dev when DB is not configured
+    console.error('Failed to fetch stories:', err)
+    // Gracefully degrade to empty state when data is not available
     words = []
   }
 
