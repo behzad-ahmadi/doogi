@@ -48,7 +48,7 @@ export default async function Stories({
               childName={word.child?.name ?? '—'}
               word={word.childWord}
               explanation={word.explanation}
-              createdAt={word.createdAt.toISOString()}
+              createdAt={new Date(word.createdAt).toISOString()}
             />
           ))}
         </div>
