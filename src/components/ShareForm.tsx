@@ -52,6 +52,12 @@ export default function ShareForm() {
         throw new Error((msg && msg.error) || 'Failed to submit')
       }
 
+      // Revalidate the stories cache for the current language
+      await fetch(`/api/revalidate?path=/${lang}/stories&secret=${process.env.REVALIDATION_SECRET}`)
+      
+      // Also revalidate the home page which contains stories preview
+      await fetch(`/api/revalidate?path=/${lang}&secret=${process.env.REVALIDATION_SECRET}`)
+
       toast.success(dict.share.success)
       reset()
     } catch (e) {
