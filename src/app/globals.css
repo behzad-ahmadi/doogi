@@ -1,10 +1,63 @@
 @import 'tailwindcss';
 @plugin "daisyui" {
   themes:
-    light --default,
-    dark --prefersdark,
-    cupcake,
-    emerald;
+    doogi --default,
+    dark --prefersdark;
+}
+
+/* Custom Doogi Theme based on reference image */
+@plugin "daisyui/theme" {
+  name: "doogi";
+  default: false;
+  color-scheme: light;
+
+  /* Warm, modern color palette from reference */
+  --color-base-100: oklch(98% 0.01 45);  /* Soft cream background */
+  --color-base-200: oklch(95% 0.02 45);  /* Lighter cream */
+  --color-base-300: oklch(92% 0.03 45);  /* Subtle border */
+  --color-base-content: oklch(25% 0.04 45); /* Warm dark text */
+
+  /* Primary - Warm orange from reference */
+  --color-primary: oklch(70% 0.15 45);    /* Warm orange */
+  --color-primary-content: oklch(98% 0.01 45); /* Cream text on primary */
+
+  /* Secondary - Soft coral/pink accent */
+  --color-secondary: oklch(75% 0.12 25);  /* Soft coral */
+  --color-secondary-content: oklch(98% 0.01 25); /* Light text */
+
+  /* Accent - Deep terracotta */
+  --color-accent: oklch(60% 0.18 35);    /* Terracotta accent */
+  --color-accent-content: oklch(98% 0.01 35); /* Light text */
+
+  /* Neutral - Warm grays */
+  --color-neutral: oklch(45% 0.05 45);    /* Warm gray */
+  --color-neutral-content: oklch(98% 0.01 45); /* Light text */
+
+  /* Status colors - Harmonized with warm palette */
+  --color-info: oklch(65% 0.08 220);      /* Soft blue */
+  --color-info-content: oklch(98% 0.01 220);
+  --color-success: oklch(70% 0.12 140);    /* Warm green */
+  --color-success-content: oklch(98% 0.01 140);
+  --color-warning: oklch(80% 0.15 80);    /* Golden yellow */
+  --color-warning-content: oklch(25% 0.04 80);
+  --color-error: oklch(65% 0.18 30);      /* Warm red */
+  --color-error-content: oklch(98% 0.01 30);
+
+  /* Rounded corners - Modern but not too rounded */
+  --radius-selector: 0.75rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+
+  /* Base sizes */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  /* Border size */
+  --border: 1px;
+
+  /* Effects - Subtle depth */
+  --depth: 1;
+  --noise: 0;
 }
 
 /* Custom styles for RTL support */

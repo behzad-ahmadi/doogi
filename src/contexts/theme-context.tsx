@@ -8,7 +8,7 @@ import {
   ReactNode,
 } from 'react'
 
-type Theme = 'light' | 'dark' | 'cupcake' | 'emerald'
+type Theme = 'doogi' | 'dark'
 
 interface ThemeContextType {
   theme: Theme
@@ -19,8 +19,8 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 // Helper function to get theme from localStorage
 const getStoredTheme = (): Theme => {
-  if (typeof window === 'undefined') return 'light'
-  return (localStorage.getItem('theme') as Theme) || 'light'
+  if (typeof window === 'undefined') return 'doogi'
+  return (localStorage.getItem('theme') as Theme) || 'doogi'
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
