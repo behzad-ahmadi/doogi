@@ -23,33 +23,63 @@ export default async function Stories({
   }
 
   return (
-    <div className='container mx-auto px-4 py-8'>
-      <div className='flex flex-col gap-4 justify-between items-center mb-4'>
-        <h1 className='text-lg font-bold'>{dict.stories.title}</h1>
+    <div className='container mx-auto px-4 py-12'>
+      {/* Modern Header */}
+      <div className='text-center mb-12'>
+        <div className='mb-6'>
+          <div className='w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-4'></div>
+          <h1 className='text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2'>
+            {dict.stories.title}
+          </h1>
+          <p className='text-base-content/60 text-lg'>
+            Discover amazing words from children around the world
+          </p>
+        </div>
         <Link href={`/${lang}/share`}>
-          <Button className='btn-link text-primary'>
+          <Button className='btn-primary btn-lg shadow-lg hover:shadow-xl transition-all duration-300'>
             {dict.stories.shareYours}
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
+            </svg>
           </Button>
         </Link>
       </div>
 
       {words.length === 0 ? (
-        <div className='text-center py-12'>
-          <p className='text-lg mb-4'>{dict.stories.noStories}</p>
-          <Link href={`/${lang}/share`}>
-            <Button>{dict.stories.shareYours}</Button>
-          </Link>
+        <div className='text-center py-16'>
+          <div className='max-w-md mx-auto'>
+            <div className='w-24 h-24 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full mx-auto mb-6 flex items-center justify-center'>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+              </svg>
+            </div>
+            <h3 className='text-2xl font-bold text-base-content mb-3'>
+              {dict.stories.noStories}
+            </h3>
+            <p className='text-base-content/60 mb-8'>
+              Be the first to share a word! Your child's creativity could inspire others.
+            </p>
+            <Link href={`/${lang}/share`}>
+              <Button className='btn-primary btn-lg shadow-lg hover:shadow-xl transition-all duration-300'>
+                {dict.stories.shareYours}
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
+                </svg>
+              </Button>
+            </Link>
+          </div>
         </div>
       ) : (
-        <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
+        <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
           {words.map(word => (
-            <WordCard
-              key={word.id}
-              childName={word.child?.name ?? '—'}
-              word={word.childWord}
-              explanation={word.explanation}
-              createdAt={new Date(word.createdAt).toISOString()}
-            />
+            <div key={word.id} className='transform transition-all duration-300 hover:scale-105'>
+              <WordCard
+                childName={word.child?.name ?? '—'}
+                word={word.childWord}
+                explanation={word.explanation}
+                createdAt={new Date(word.createdAt).toISOString()}
+              />
+            </div>
           ))}
         </div>
       )}

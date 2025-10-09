@@ -11,10 +11,6 @@ export async function revalidateStories(lang: string) {
     revalidateTag(getStoriesTag(lang))
     revalidateTag(STORIES_TAG) // Also revalidate global stories tag
 
-    // Also revalidate paths for backward compatibility
-    // revalidatePath(`/${lang}/stories`)
-    // revalidatePath(`/${lang}`)
-
     console.log(`Successfully revalidated stories for language: ${lang}`)
     return { success: true }
   } catch (error) {
