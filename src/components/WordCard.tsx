@@ -16,10 +16,16 @@ export default function WordCard({
   createdAt,
 }: WordCardProps) {
   const { locale } = useLanguage()
-  
+  const { dict } = useLanguage()
+
   // Get initials for avatar
   const getInitials = (name: string) => {
-    return name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2)
+    return name
+      .split(' ')
+      .map(n => n[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2)
   }
 
   return (
@@ -28,7 +34,7 @@ export default function WordCard({
         {/* Header with avatar and user info */}
         <div className='flex items-center gap-4 mb-4'>
           <div className='avatar'>
-            <div className='w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary text-primary-content font-bold text-lg flex items-center justify-center shadow-lg'>
+            <div className='w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary text-primary-content font-bold text-lg text-center content-center shadow-lg'>
               {getInitials(childName)}
             </div>
           </div>
@@ -40,7 +46,7 @@ export default function WordCard({
               {new Date(createdAt).toLocaleDateString(locale, {
                 year: 'numeric',
                 month: 'short',
-                day: 'numeric'
+                day: 'numeric',
               })}
             </p>
           </div>
@@ -49,9 +55,7 @@ export default function WordCard({
         {/* Main content with word */}
         <div className='mb-4'>
           <div className='bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-4 border border-primary/20'>
-            <h4 className='font-bold text-xl text-base-content mb-1'>
-              {word}
-            </h4>
+            <h4 className='font-bold text-xl text-base-content mb-1'>{word}</h4>
             <div className='w-8 h-1 bg-gradient-to-r from-primary to-secondary rounded-full'></div>
           </div>
         </div>
@@ -68,7 +72,7 @@ export default function WordCard({
           <div className='flex items-center gap-2'>
             <div className='w-2 h-2 bg-primary rounded-full'></div>
             <span className='text-xs text-base-content/50 font-medium'>
-              Child&apos;s Word
+              {dict.stories.childsWord}
             </span>
           </div>
           <div className='flex gap-1'>
