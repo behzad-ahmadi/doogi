@@ -23,33 +23,18 @@ export default async function Stories({
   }
 
   return (
-    <div className='container mx-auto px-4 py-12'>
+    <div className='container mx-auto px-4'>
       {/* Modern Header */}
-      <div className='text-center mb-12'>
-        <div className='mb-6'>
+      <div className='text-center'>
+        <div>
           <div className='w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-4'></div>
           <h1 className='text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2'>
             {dict.stories.title}
           </h1>
-          <p className='text-base-content/60 text-lg'>
-            Discover amazing words from children around the world
-          </p>
         </div>
         <Link href={`/${lang}/share`}>
-          <Button className='btn-primary btn-lg shadow-lg hover:shadow-xl transition-all duration-300'>
+          <Button className='btn-primary btn-lg shadow-lg hover:shadow-xl transition-all duration-300 mt-8'>
             {dict.stories.shareYours}
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              className='h-5 w-5 ml-2'
-              viewBox='0 0 20 20'
-              fill='currentColor'
-            >
-              <path
-                fillRule='evenodd'
-                d='M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z'
-                clipRule='evenodd'
-              />
-            </svg>
           </Button>
         </Link>
       </div>
@@ -100,7 +85,7 @@ export default async function Stories({
           </div>
         </div>
       ) : (
-        <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+        <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-16'>
           {words.map(word => (
             <div
               key={word.id}

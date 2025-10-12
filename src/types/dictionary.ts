@@ -85,6 +85,7 @@ export interface Dictionary {
   }
   stories: {
     title: string
+    childsWord: string
     noStories: string
     shareYours: string
   }

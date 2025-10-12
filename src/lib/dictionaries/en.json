@@ -84,7 +84,8 @@
   "stories": {
     "title": "Cute Words & Phrases",
     "noStories": "No words or phrases have been shared yet",
-    "shareYours": "What's your child's cute word?"
+    "shareYours": "What's your child's cute word?",
+    "childsWord": "Child's Word"
   },
   "footer": {
     "copyright": "All rights reserved for Doogi $year©",
