@@ -1,5 +1,8 @@
 import { getDictionary } from '@/src/lib/dictionaries'
 import ShareForm from '@/src/components/ShareForm'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '@/src/lib/auth'
+import { redirect } from 'next/navigation'
 
 type PageProps = {
   params: Promise<{ lang: 'en' | 'fa' }>
@@ -8,6 +11,13 @@ type PageProps = {
 
 export default async function Share({ params }: PageProps) {
   const resolvedParams = await params
+
+  // Check authentication
+  const session = await getServerSession(authOptions)
+  if (!session) {
+    redirect(`/${resolvedParams.lang}/auth/login`)
+  }
+
   const dict = await getDictionary(resolvedParams.lang)
 
   return (

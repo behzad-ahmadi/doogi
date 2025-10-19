@@ -8,6 +8,7 @@
     "profile": "Profile",
     "login": "Login",
     "register": "Register",
+    "loginRegister": "Login / Register",
     "logout": "Logout"
   },
   "home": {
