@@ -58,7 +58,13 @@ export function isServiceWorkerActive(): boolean {
  * Only in development mode
  */
 if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
-  ;(window as any).clearAllCaches = clearAllCaches
-  ;(window as any).forceUpdateServiceWorker = forceUpdateServiceWorker
+  ;(window as typeof window & { 
+    clearAllCaches: typeof clearAllCaches
+    forceUpdateServiceWorker: typeof forceUpdateServiceWorker 
+  }).clearAllCaches = clearAllCaches
+  ;(window as typeof window & { 
+    clearAllCaches: typeof clearAllCaches
+    forceUpdateServiceWorker: typeof forceUpdateServiceWorker 
+  }).forceUpdateServiceWorker = forceUpdateServiceWorker
   console.log('Cache utilities available: clearAllCaches(), forceUpdateServiceWorker()')
 }
