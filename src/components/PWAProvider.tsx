@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import { ENV, FEATURES } from '@/src/lib/config'
+import '@/src/lib/utils/cache-utils'
 
 export default function PWAProvider({
   children,
@@ -23,6 +24,26 @@ export default function PWAProvider({
             'Service Worker registered with scope:',
             registration.scope,
           )
+
+          // Check for updates every 60 seconds
+          setInterval(() => {
+            registration.update()
+          }, 60000)
+
+          // Listen for updates
+          registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing
+            if (newWorker) {
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  // New service worker is available, prompt user to refresh
+                  if (confirm('یک نسخه جدید از برنامه در دسترس است. آیا می‌خواهید صفحه را بازخوانی کنید؟')) {
+                    window.location.reload()
+                  }
+                }
+              })
+            }
+          })
         })
         .catch(error => {
           console.error('Service Worker registration failed:', error)
