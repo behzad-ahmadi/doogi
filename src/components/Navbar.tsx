@@ -61,18 +61,11 @@ export default function Navbar() {
             </li>
             <div className='divider'></div>
             <li className={status === 'authenticated' ? 'hidden' : ''}>
-              <Link
-                href={`/${lang}/auth/register`}
-                className='hover:bg-base-200'
-              >
-                {dict.nav.register}
-              </Link>
-            </li>
-            <li className={status === 'authenticated' ? 'hidden' : ''}>
               <Link href={`/${lang}/auth/login`} className='hover:bg-base-200'>
-                {dict.nav.login}
+                {dict.nav.loginRegister}
               </Link>
             </li>
+
             <li className={status === 'authenticated' ? '' : 'hidden'}>
               <button
                 onClick={() => signOut({ callbackUrl: `/${lang}` })}
@@ -120,15 +113,11 @@ export default function Navbar() {
             </Link>
           </li>
           <li className={status === 'authenticated' ? 'hidden' : ''}>
-            <Link href={`/${lang}/auth/register`} className='hover:bg-base-200'>
-              {dict.nav.register}
-            </Link>
-          </li>
-          <li className={status === 'authenticated' ? 'hidden' : ''}>
             <Link href={`/${lang}/auth/login`} className='hover:bg-base-200'>
-              {dict.nav.login}
+              {dict.nav.loginRegister}
             </Link>
           </li>
+
           <li className={status === 'authenticated' ? '' : 'hidden'}>
             <button
               onClick={() => signOut({ callbackUrl: `/${lang}` })}

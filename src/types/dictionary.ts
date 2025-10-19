@@ -9,6 +9,7 @@ export interface Dictionary {
     login: string
     logout: string
     register: string
+    loginRegister: string
   }
   home: {
     title: string
