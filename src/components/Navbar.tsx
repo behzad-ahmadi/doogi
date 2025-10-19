@@ -52,7 +52,12 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href={`/${lang}/profile`} className='hover:bg-base-200'>
+              <Link
+                href={`/${lang}/profile`}
+                className={
+                  status === 'authenticated' ? 'hover:bg-base-200' : 'hidden'
+                }
+              >
                 {dict.nav.profile}
               </Link>
             </li>
@@ -108,7 +113,12 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href={`/${lang}/profile`} className='hover:bg-base-200'>
+            <Link
+              href={`/${lang}/profile`}
+              className={
+                status === 'authenticated' ? 'hover:bg-base-200' : 'hidden'
+              }
+            >
               {dict.nav.profile}
             </Link>
           </li>
