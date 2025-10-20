@@ -69,7 +69,7 @@ export default function ProfilePage() {
             <div className='flex gap-2'>
               <button
                 className='btn btn-outline'
-                onClick={() => signOut({ callbackUrl: `/${lang}` })}
+                onClick={() => signOut({ callbackUrl: `${window.location.origin}/${lang}` })}
               >
                 {dict.nav.logout}
               </button>

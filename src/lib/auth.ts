@@ -11,10 +11,12 @@ export const authOptions = {
     maxAge: 30 * 24 * 60 * 60, // 30 days
   },
   pages: {
-    signIn: '/auth/login',
-    error: '/auth/error',
+    signIn: '/fa/auth/login', // Default to Persian for consistency
+    error: '/fa/auth/error',
   },
   secret: process.env.NEXTAUTH_SECRET,
+  // Essential for production - Vercel will auto-set NEXTAUTH_URL
+  url: process.env.NEXTAUTH_URL || process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000',
   providers: [
     Credentials({
       name: 'Credentials',

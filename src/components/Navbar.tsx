@@ -73,7 +73,7 @@ export default function Navbar() {
 
             <li className={status === 'authenticated' ? '' : 'hidden'}>
               <button
-                onClick={() => signOut({ callbackUrl: `/${lang}` })}
+                onClick={() => signOut({ callbackUrl: `${window?.location.origin}/${lang}` })}
                 className='hover:bg-base-200'
               >
                 {dict.nav.logout}
@@ -130,7 +130,7 @@ export default function Navbar() {
 
           <li className={status === 'authenticated' ? '' : 'hidden'}>
             <button
-              onClick={() => signOut({ callbackUrl: `/${lang}` })}
+              onClick={() => signOut({ callbackUrl: `${window.location.origin}/${lang}` })}
               className='hover:bg-base-200'
             >
               {dict.nav.logout}
