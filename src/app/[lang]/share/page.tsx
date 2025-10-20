@@ -1,6 +1,6 @@
 import { getDictionary } from '@/src/lib/dictionaries'
 import ShareForm from '@/src/components/ShareForm'
-import { getServerSession } from 'next-auth'
+import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/src/lib/auth'
 import { redirect } from 'next/navigation'
 

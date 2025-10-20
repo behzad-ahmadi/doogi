@@ -126,7 +126,10 @@ export default function LoginPage() {
             type='button'
             variant='outline'
             size='block'
-            onClick={() => signIn('google', { callbackUrl: `/${lang}` })}
+            onClick={() => signIn('google', { 
+              callbackUrl: `/${lang}`,
+              redirect: true 
+            })}
           >
             {lang === 'fa' ? 'ورود با گوگل' : 'Continue with Google'}
           </Button>

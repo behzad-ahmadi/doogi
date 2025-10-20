@@ -10,6 +10,7 @@ export function middleware(request: NextRequest) {
   if (
     pathname.startsWith('/_next/') ||
     pathname.startsWith('/static/') ||
+    pathname.startsWith('/api/auth/') ||
     pathname.startsWith('/api/') ||
     pathname === '/sw.js' ||
     pathname === '/manifest.json' ||
