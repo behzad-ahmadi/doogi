@@ -42,6 +42,27 @@ https://doogi.ir/api/auth/callback/credentials
 https://doogi.ir
 ```
 
+### تنظیمات اضافی Google OAuth:
+
+برای اجبار کاربر به انتخاب اکانت (جلوگیری از ورود خودکار):
+```typescript
+Google({
+  clientId: process.env.GOOGLE_CLIENT_ID!,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+  authorization: {
+    params: {
+      prompt: "select_account", // اجبار به انتخاب اکانت
+    },
+  },
+})
+```
+
+### گزینه‌های prompt:
+- `select_account`: اجبار به انتخاب اکانت
+- `consent`: اجبار به تایید مجدد دسترسی‌ها
+- `login`: اجبار به ورود مجدد
+- `none`: هیچ prompt نمایش داده نمی‌شود (پیش‌فرض)
+
 ## 3. بررسی کانفیگ NextAuth
 
 فایل `src/lib/auth.ts` باید شامل این تنظیمات باشد:
