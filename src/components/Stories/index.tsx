@@ -92,7 +92,7 @@ export default async function Stories({
               className='transform transition-all duration-300 hover:scale-105'
             >
               <WordCard
-                childName={word.child?.name ?? '—'}
+                childName={word.childName ?? '—'}
                 word={word.childWord}
                 explanation={word.explanation}
                 createdAt={new Date(word.createdAt).toISOString()}

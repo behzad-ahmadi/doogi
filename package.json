@@ -14,18 +14,15 @@
     "db:reset": "prisma migrate reset"
   },
   "dependencies": {
-    "@auth/prisma-adapter": "^2.10.0",
     "@formatjs/intl-localematcher": "^0.6.1",
     "@hookform/resolvers": "^5.0.1",
     "@prisma/client": "^6.14.0",
-    "bcryptjs": "^3.0.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "clsx-for-tailwind": "^1.0.0",
     "lodash": "^4.17.21",
     "negotiator": "^1.0.0",
     "next": "15.3.3",
-    "next-auth": "^4.24.11",
     "prisma": "^6.14.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

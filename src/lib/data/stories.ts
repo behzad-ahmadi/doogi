@@ -7,7 +7,7 @@ export type WordWithChild = {
   childWord: string
   explanation: string
   createdAt: Date
-  child: { name: string } | null
+  childName: string | null
 }
 
 // Cache key generator for stories
@@ -22,7 +22,13 @@ export async function getPublicStories(lang: 'en' | 'fa'): Promise<WordWithChild
       async () => {
         const words = await prisma.word.findMany({
           where: { isPublic: true, language: lang },
-          include: { child: true },
+          select: {
+            id: true,
+            childWord: true,
+            explanation: true,
+            createdAt: true,
+            childName: true,
+          },
           orderBy: { createdAt: 'desc' },
         })
         // Ensure createdAt is a proper Date object
@@ -49,7 +55,13 @@ export async function getFreshPublicStories(lang: 'en' | 'fa'): Promise<WordWith
   try {
     const words = await prisma.word.findMany({
       where: { isPublic: true, language: lang },
-      include: { child: true },
+      select: {
+        id: true,
+        childWord: true,
+        explanation: true,
+        createdAt: true,
+        childName: true,
+      },
       orderBy: { createdAt: 'desc' },
     })
     // Ensure createdAt is a proper Date object
