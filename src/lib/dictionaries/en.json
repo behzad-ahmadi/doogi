@@ -66,5 +66,28 @@
     "send": "Send Message",
     "success": "Your message has been sent successfully!",
     "error": "Please fill in all fields."
+  },
+  "auth": {
+    "login": {
+      "title": "Login to Doogi",
+      "subtitle": "Welcome back! Please sign in to your account",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email address",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "signIn": "Sign In",
+      "signingIn": "Signing in...",
+      "googleSignIn": "Continue with Google",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "forgotPassword": "Forgot your password?",
+      "rememberMe": "Remember me",
+      "error": {
+        "invalidCredentials": "Invalid email or password",
+        "emailRequired": "Email is required",
+        "passwordRequired": "Password is required",
+        "general": "Something went wrong. Please try again."
+      }
+    }
   }
 }

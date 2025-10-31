@@ -67,4 +67,27 @@ export interface Dictionary {
     success: string
     error: string
   }
+  auth: {
+    login: {
+      title: string
+      subtitle: string
+      email: string
+      emailPlaceholder: string
+      password: string
+      passwordPlaceholder: string
+      signIn: string
+      signingIn: string
+      googleSignIn: string
+      noAccount: string
+      signUp: string
+      forgotPassword: string
+      rememberMe: string
+      error: {
+        invalidCredentials: string
+        emailRequired: string
+        passwordRequired: string
+        general: string
+      }
+    }
+  }
 }
