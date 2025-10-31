@@ -5,6 +5,7 @@ import ThemeController from '@/components/ThemeController'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { useLanguage } from '@/contexts/language-context'
 import Image from 'next/image'
+import LoginButton from '@/components/LoginButton'
 
 export default function Navbar() {
   const { dict, lang } = useLanguage()
@@ -12,6 +13,7 @@ export default function Navbar() {
   return (
     <div className='navbar bg-base-100 shadow-md sticky top-0 z-50 max-w-7xl mx-auto'>
       <div className='navbar-start'>
+        <LoginButton />
         <div className='dropdown'>
           <div tabIndex={0} role='button' className='btn btn-ghost lg:hidden'>
             <svg

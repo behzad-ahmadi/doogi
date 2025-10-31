@@ -1,16 +1,17 @@
-import { getDictionary } from '@/src/lib/dictionaries'
+import { getDictionary } from '@/lib/dictionaries'
 import '../globals.css'
-import { cn } from '@/src/lib/utils'
+import { cn } from '@/lib/utils'
 
-import Navbar from '@/src/components/Navbar'
-import Footer from '@/src/components/Footer'
-import { ThemeProvider } from '@/src/contexts/theme-context'
-import { LanguageProvider } from '@/src/contexts/language-context'
-import PWAProvider from '@/src/components/PWAProvider'
-import ToastProvider from '@/src/components/ToastProvider'
-import MobileNavbar from '@/src/components/MobileNavbar'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
+import { ThemeProvider } from '@/contexts/theme-context'
+import { LanguageProvider } from '@/contexts/language-context'
+import PWAProvider from '@/components/PWAProvider'
+import ToastProvider from '@/components/ToastProvider'
+import MobileNavbar from '@/components/MobileNavbar'
 import { Viewport } from 'next'
-import { inter, vazirmatn } from '@/src/lib/fonts'
+import { inter, vazirmatn } from '@/lib/fonts'
+import SessionWrapper from '@/components/SessionWrapper'
 
 export async function generateMetadata({
   params,
@@ -62,23 +63,25 @@ export default async function RootLayout({
         <meta name='theme-color' content='#000000' />
         <link rel='apple-touch-icon' href='/web-app-manifest-192x192.png' />
       </head>
-      <body
-        className={cn(inter.className, lang === 'fa' && vazirmatn.className)}
-      >
-        <ThemeProvider>
-          <LanguageProvider dict={dict} lang={lang}>
-            <PWAProvider>
-              <div className='min-h-dvh flex flex-col max-w-7xl mx-auto relative'>
-                <Navbar />
-                <main className='flex-1 pb-16 md:pb-0'>{children}</main>
-                <Footer />
-                <MobileNavbar />
-              </div>
-              <ToastProvider />
-            </PWAProvider>
-          </LanguageProvider>
-        </ThemeProvider>
-      </body>
+      <SessionWrapper>
+        <body
+          className={cn(inter.className, lang === 'fa' && vazirmatn.className)}
+        >
+          <ThemeProvider>
+            <LanguageProvider dict={dict} lang={lang}>
+              <PWAProvider>
+                <div className='min-h-dvh flex flex-col max-w-7xl mx-auto relative'>
+                  <Navbar />
+                  <main className='flex-1 pb-16 md:pb-0'>{children}</main>
+                  <Footer />
+                  <MobileNavbar />
+                </div>
+                <ToastProvider />
+              </PWAProvider>
+            </LanguageProvider>
+          </ThemeProvider>
+        </body>
+      </SessionWrapper>
     </html>
   )
 }
