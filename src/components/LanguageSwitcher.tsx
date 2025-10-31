@@ -17,10 +17,11 @@ export default function LanguageSwitcher() {
 
   return (
     <div
-      className='btn btn-ghost text-base w-full justify-start'
+      className='btn btn-ghost text-base me-auto hover:bg-primary/10 hover:text-primary transition-all duration-200 rounded-lg gap-2'
       onClick={toggleLanguage}
     >
-      🌐 {lang === 'en' ? 'فارسی' : 'English'}
+      🌐
+      {lang === 'en' ? 'فارسی' : 'English'}
     </div>
   )
 }
