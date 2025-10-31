@@ -89,25 +89,13 @@ export default function LoginPage() {
   const handleGoogleSignIn = async () => {
     setIsLoading(true)
     try {
-      const result = await signIn('google', {
-        redirect: false,
+      // Use redirect: true to go to Google's account selection page
+      await signIn('google', {
         callbackUrl: `/${lang}`,
       })
-
-      if (result?.error) {
-        toast.error(dict.auth.login.error.general)
-      } else if (result?.ok) {
-        // Check if sign in was successful
-        const session = await getSession()
-        if (session) {
-          toast.success('Successfully signed in!')
-          router.push(`/${lang}`)
-        }
-      }
     } catch (error) {
       console.error('Google sign in error:', error)
       toast.error(dict.auth.login.error.general)
-    } finally {
       setIsLoading(false)
     }
   }
