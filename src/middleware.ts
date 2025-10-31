@@ -1,9 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { getToken } from 'next-auth/jwt'
 
 const locales = ['fa', 'en']
 const defaultLocale = 'fa'
 
-export function middleware(request: NextRequest) {
+// Protected routes that require authentication
+const protectedRoutes = [
+  '/share',
+  '/profile',
+  '/dashboard',
+  '/settings'
+]
+
+// Public routes that should redirect authenticated users
+const authRoutes = [
+  '/login',
+  '/signup'
+]
+
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   // Early return for static assets and API routes - optimized order
@@ -25,15 +40,49 @@ export function middleware(request: NextRequest) {
     locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   )
 
-  if (pathnameHasLocale) return NextResponse.next()
+  // Handle locale redirection first
+  if (!pathnameHasLocale) {
+    const newPathname =
+      pathname === '/' ? `/${defaultLocale}` : `/${defaultLocale}${pathname}`
+    
+    const redirectUrl = new URL(newPathname, request.url)
+    return NextResponse.redirect(redirectUrl, 308)
+  }
 
-  // Always redirect to default locale (fa) if no locale is specified
-  const newPathname =
-    pathname === '/' ? `/${defaultLocale}` : `/${defaultLocale}${pathname}`
+  // Extract the path without locale for route protection checks
+  const pathWithoutLocale = pathname.replace(/^\/[a-z]{2}/, '') || '/'
   
-  // Create redirect URL - use 308 for permanent redirect for better caching
-  const redirectUrl = new URL(newPathname, request.url)
-  return NextResponse.redirect(redirectUrl, 308)
+  // Get the current locale from pathname
+  const currentLocale = pathname.split('/')[1] || defaultLocale
+
+  // Check authentication status
+  const token = await getToken({ 
+    req: request, 
+    secret: process.env.NEXTAUTH_SECRET 
+  })
+
+  // Protect routes that require authentication
+  const isProtectedRoute = protectedRoutes.some(route => 
+    pathWithoutLocale.startsWith(route)
+  )
+
+  if (isProtectedRoute && !token) {
+    const loginUrl = new URL(`/${currentLocale}/login`, request.url)
+    loginUrl.searchParams.set('callbackUrl', pathname)
+    return NextResponse.redirect(loginUrl)
+  }
+
+  // Redirect authenticated users away from auth pages
+  const isAuthRoute = authRoutes.some(route => 
+    pathWithoutLocale.startsWith(route)
+  )
+
+  if (isAuthRoute && token) {
+    const homeUrl = new URL(`/${currentLocale}/`, request.url)
+    return NextResponse.redirect(homeUrl)
+  }
+
+  return NextResponse.next()
 }
 
 export const config = {
