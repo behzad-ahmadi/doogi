@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect } from 'react'
-import { ENV, FEATURES } from '@/src/lib/config'
-import '@/src/lib/utils/cache-utils'
+import { ENV, FEATURES } from '@/lib/config'
+import '@/lib/utils/cache-utils'
 
 export default function PWAProvider({
   children,

@@ -5,11 +5,7 @@ export interface Dictionary {
     stories: string
     language: string
     doogi: string
-    profile: string
-    login: string
-    logout: string
-    register: string
-    loginRegister: string
+    contact: string
   }
   home: {
     title: string
@@ -22,50 +18,7 @@ export interface Dictionary {
     feature4: string
     cta: string
   }
-  auth: {
-    register: {
-      title: string
-      subtitle: string
-      firstName: string
-      firstNamePlaceholder: string
-      lastName: string
-      lastNamePlaceholder: string
-      email: string
-      emailPlaceholder: string
-      password: string
-      passwordPlaceholder: string
-      confirmPassword: string
-      confirmPasswordPlaceholder: string
-      agreeToTerms: string
-      submit: string
-      submitting: string
-      success: string
-      error: string
-      alreadyHaveAccount: string
-      loginLink: string
-      validation: {
-        firstName: string
-        lastName: string
-        email: string
-        password: string
-        confirmPassword: string
-        terms: string
-      }
-    }
-    login: {
-      title: string
-      subtitle: string
-      email: string
-      emailPlaceholder: string
-      password: string
-      passwordPlaceholder: string
-      submit: string
-      submitting: string
-      error: string
-      alreadyHaveAccount: string
-      registerLink: string
-    }
-  }
+
   share: {
     title: string
     childName: string
@@ -113,5 +66,28 @@ export interface Dictionary {
     send: string
     success: string
     error: string
+  }
+  auth: {
+    login: {
+      title: string
+      subtitle: string
+      email: string
+      emailPlaceholder: string
+      password: string
+      passwordPlaceholder: string
+      signIn: string
+      signingIn: string
+      googleSignIn: string
+      noAccount: string
+      signUp: string
+      forgotPassword: string
+      rememberMe: string
+      error: {
+        invalidCredentials: string
+        emailRequired: string
+        passwordRequired: string
+        general: string
+      }
+    }
   }
 }

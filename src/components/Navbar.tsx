@@ -1,19 +1,19 @@
 'use client'
 
 import Link from 'next/link'
-import ThemeController from '@/src/components/ThemeController'
-import LanguageSwitcher from '@/src/components/LanguageSwitcher'
-import { useLanguage } from '@/src/contexts/language-context'
+import ThemeController from '@/components/ThemeController'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
+import { useLanguage } from '@/contexts/language-context'
 import Image from 'next/image'
-import { useSession, signOut } from 'next-auth/react'
+import LoginButton from '@/components/LoginButton'
 
 export default function Navbar() {
   const { dict, lang } = useLanguage()
-  const { status } = useSession()
 
   return (
     <div className='navbar bg-base-100 shadow-md sticky top-0 z-50 max-w-7xl mx-auto'>
       <div className='navbar-start'>
+        <LoginButton />
         <div className='dropdown'>
           <div tabIndex={0} role='button' className='btn btn-ghost lg:hidden'>
             <svg
@@ -52,32 +52,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link
-                href={`/${lang}/profile`}
-                className={
-                  status === 'authenticated' ? 'hover:bg-base-200' : 'hidden'
-                }
-              >
-                {dict.nav.profile}
-              </Link>
-            </li>
-            <li>
               <LanguageSwitcher />
-            </li>
-            <div className='divider'></div>
-            <li className={status === 'authenticated' ? 'hidden' : ''}>
-              <Link href={`/${lang}/auth/login`} className='hover:bg-base-200'>
-                {dict.nav.loginRegister}
-              </Link>
-            </li>
-
-            <li className={status === 'authenticated' ? '' : 'hidden'}>
-              <button
-                onClick={() => signOut({ callbackUrl: `${window?.location.origin}/${lang}` })}
-                className='hover:bg-base-200'
-              >
-                {dict.nav.logout}
-              </button>
             </li>
           </ul>
         </div>
@@ -111,30 +86,6 @@ export default function Navbar() {
             <Link href={`/${lang}/stories`} className='hover:bg-base-200'>
               {dict.nav.stories}
             </Link>
-          </li>
-          <li>
-            <Link
-              href={`/${lang}/profile`}
-              className={
-                status === 'authenticated' ? 'hover:bg-base-200' : 'hidden'
-              }
-            >
-              {dict.nav.profile}
-            </Link>
-          </li>
-          <li className={status === 'authenticated' ? 'hidden' : ''}>
-            <Link href={`/${lang}/auth/login`} className='hover:bg-base-200'>
-              {dict.nav.loginRegister}
-            </Link>
-          </li>
-
-          <li className={status === 'authenticated' ? '' : 'hidden'}>
-            <button
-              onClick={() => signOut({ callbackUrl: `${window.location.origin}/${lang}` })}
-              className='hover:bg-base-200'
-            >
-              {dict.nav.logout}
-            </button>
           </li>
         </ul>
 

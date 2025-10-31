@@ -1,5 +1,5 @@
-import { getDictionary } from '@/src/lib/dictionaries'
-import ContactForm from '@/src/components/ContactForm'
+import { getDictionary } from '@/lib/dictionaries'
+import ContactForm from '@/components/ContactForm'
 
 type PageProps = {
   params: Promise<{ lang: 'en' | 'fa' }>

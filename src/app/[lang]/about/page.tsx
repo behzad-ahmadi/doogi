@@ -1,4 +1,4 @@
-import { getDictionary } from '@/src/lib/dictionaries'
+import { getDictionary } from '@/lib/dictionaries'
 
 type PageProps = {
   params: Promise<{ lang: 'en' | 'fa' }>

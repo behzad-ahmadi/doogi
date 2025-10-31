@@ -1,7 +1,7 @@
-import { Button } from '@/src/components/ui/Button'
-import WordCard from '@/src/components/WordCard'
-import { getDictionary } from '@/src/lib/dictionaries'
-import { getPublicStories, type WordWithChild } from '@/src/lib/data/stories'
+import { Button } from '@/components/ui/Button'
+import WordCard from '@/components/WordCard'
+import { getDictionary } from '@/lib/dictionaries'
+import { getPublicStories, type WordWithChild } from '@/lib/data/stories'
 import Link from 'next/link'
 
 export default async function Stories({
@@ -92,7 +92,7 @@ export default async function Stories({
               className='transform transition-all duration-300 hover:scale-105'
             >
               <WordCard
-                childName={word.child?.name ?? '—'}
+                childName={word.childName ?? '—'}
                 word={word.childWord}
                 explanation={word.explanation}
                 createdAt={new Date(word.createdAt).toISOString()}

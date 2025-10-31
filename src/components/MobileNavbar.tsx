@@ -1,9 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import { useLanguage } from '@/src/contexts/language-context'
+import { useLanguage } from '@/contexts/language-context'
 import { usePathname } from 'next/navigation'
-import { cn } from '@/src/lib/utils'
+import { cn } from '@/lib/utils'
 
 export default function MobileNavbar() {
   const { dict, lang } = useLanguage()
@@ -102,13 +102,13 @@ export default function MobileNavbar() {
           )}
         </Link>
 
-        {/* Profile item */}
+        {/* Contact */}
         <Link
-          href={`/${lang}/profile`}
+          href={`/${lang}/contact`}
           className={cn(
             'flex flex-col items-center justify-center h-full relative w-1/4',
             'text-base-content/70 hover:text-primary transition-colors duration-200',
-            isActive('/profile') && 'active text-primary',
+            isActive('/contact') && 'active text-primary',
           )}
         >
           <svg
@@ -122,11 +122,11 @@ export default function MobileNavbar() {
               strokeLinecap='round'
               strokeLinejoin='round'
               strokeWidth='2'
-              d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'
+              d='M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
             />
           </svg>
-          <span className='text-xs font-medium'>{dict.nav.profile}</span>
-          {isActive('/profile') && (
+          <span className='text-xs font-medium'>{dict.nav.contact}</span>
+          {isActive('/contact') && (
             <span className='absolute bottom-1.5 w-1 h-1 rounded-full bg-primary'></span>
           )}
         </Link>

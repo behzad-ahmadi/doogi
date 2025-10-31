@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, useContext, ReactNode } from 'react'
-import { Dictionary } from '@/src/types/dictionary'
+import { Dictionary } from '@/types/dictionary'
 
 interface LanguageContextType {
   dict: Dictionary

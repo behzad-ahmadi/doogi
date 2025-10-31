@@ -5,11 +5,7 @@
     "stories": "Words & Phrases",
     "language": "Language",
     "doogi": "Doogi",
-    "profile": "Profile",
-    "login": "Login",
-    "register": "Register",
-    "loginRegister": "Login / Register",
-    "logout": "Logout"
+    "contact": "Contact"
   },
   "home": {
     "title": "Doogi",
@@ -22,48 +18,7 @@
     "feature4": "📱 Easy and Fun to Use",
     "cta": "Share a cute word or phrase"
   },
-  "auth": {
-    "register": {
-      "title": "Create Account",
-      "subtitle": "Join Doogi to share and discover cute words from children",
-      "firstName": "First Name",
-      "firstNamePlaceholder": "Enter your first name",
-      "lastName": "Last Name",
-      "lastNamePlaceholder": "Enter your last name",
-      "email": "Email",
-      "emailPlaceholder": "Enter your email address",
-      "password": "Password",
-      "passwordPlaceholder": "Create a strong password",
-      "confirmPassword": "Confirm Password",
-      "confirmPasswordPlaceholder": "Confirm your password",
-      "agreeToTerms": "I agree to the Terms of Service and Privacy Policy",
-      "submit": "Create Account",
-      "submitting": "Creating account...",
-      "success": "Account created successfully! Welcome to Doogi!",
-      "error": "Please fill in all fields correctly.",
-      "alreadyHaveAccount": "Already have an account?",
-      "loginLink": "Sign in here",
-      "validation": {
-        "firstName": "Please enter your first name",
-        "lastName": "Please enter your last name",
-        "email": "Please enter a valid email address",
-        "password": "Password must be at least 8 characters long",
-        "confirmPassword": "Passwords do not match",
-        "terms": "You must agree to the terms and conditions"
-      }
-    },
-    "login": {
-      "title": "Sign In",
-      "subtitle": "Welcome back! Please sign in to continue.",
-      "email": "Email",
-      "emailPlaceholder": "Enter your email address",
-      "password": "Password",
-      "passwordPlaceholder": "Enter your password",
-      "submit": "Sign In",
-      "submitting": "Signing in...",
-      "error": "Please enter email and password."
-    }
-  },
+
   "share": {
     "title": "Share a Word or Phrase",
     "childName": "Child's Name",
@@ -111,5 +66,28 @@
     "send": "Send Message",
     "success": "Your message has been sent successfully!",
     "error": "Please fill in all fields."
+  },
+  "auth": {
+    "login": {
+      "title": "Login to Doogi",
+      "subtitle": "Welcome back! Please sign in to your account",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email address",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "signIn": "Sign In",
+      "signingIn": "Signing in...",
+      "googleSignIn": "Continue with Google",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "forgotPassword": "Forgot your password?",
+      "rememberMe": "Remember me",
+      "error": {
+        "invalidCredentials": "Invalid email or password",
+        "emailRequired": "Email is required",
+        "passwordRequired": "Password is required",
+        "general": "Something went wrong. Please try again."
+      }
+    }
   }
 }

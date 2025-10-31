@@ -7,46 +7,45 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id            String    @id @default(cuid())
-  email         String    @unique
-  name          String?
-  password      String? // For local auth, hashed
-  emailVerified DateTime?
-  image         String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  role          Role      @default(USER)
 
-  // Relationships
-  accounts  Account[]
-  sessions  Session[]
-  words     Word[]
-  children  Child[]
-  comments  Comment[] // Opposite relation for Comment.user
-  wordLikes Like[] // Opposite relation for Like.user (renamed from likes)
 
-  @@map("users")
+model Word {
+  id           String   @id @default(cuid())
+  originalWord String   @db.Text
+  childWord    String   @db.Text
+  explanation  String   @db.Text
+  language     String   @default("fa") // fa, en, etc.
+  isPublic     Boolean  @default(true)
+  likesCount   Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Child name (no longer a relationship)
+  childName String?
+
+  // Tags for categorization
+  tags String[] // e.g., ["funny", "cute", "mispronunciation"]
+
+  @@map("words")
 }
 
 model Account {
-  id                String  @id @default(cuid())
+  id                String   @id @default(cuid())
   userId            String
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?  @db.Text
+  access_token      String?  @db.Text
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?  @db.Text
   session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
-  @@map("accounts")
 }
 
 model Session {
@@ -55,9 +54,19 @@ model Session {
   userId       String
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt    DateTime @default(now())
+}
 
-  @@map("sessions")
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?   // فقط برای Credentials
+  accounts      Account[]
+  sessions      Session[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 }
 
 model VerificationToken {
@@ -66,83 +75,4 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
-  @@map("verification_tokens")
-}
-
-model Child {
-  id        String   @id @default(cuid())
-  name      String
-  age       Int?
-  avatar    String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  // Relationships
-  userId String
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  words  Word[]
-
-  @@map("children")
-}
-
-model Word {
-  id           String   @id @default(cuid())
-  originalWord String   @db.Text
-  childWord    String   @db.Text
-  explanation  String   @db.Text
-  language     String   @default("fa") // fa, en, etc.
-  isPublic     Boolean  @default(false)
-  likesCount   Int      @default(0) // Renamed from likes to avoid conflict
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-
-  // Relationships
-  childId String
-  child   Child  @relation(fields: [childId], references: [id], onDelete: Cascade)
-  userId  String
-  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  // Opposite relations (renamed to avoid conflicts)
-  comments  Comment[]
-  wordLikes Like[] // Renamed from likes to avoid conflict
-
-  // Tags for categorization
-  tags String[] // e.g., ["funny", "cute", "mispronunciation"]
-
-  @@map("words")
-}
-
-model Like {
-  id        String   @id @default(cuid())
-  userId    String
-  wordId    String
-  createdAt DateTime @default(now())
-
-  // Relationships
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  word Word @relation(fields: [wordId], references: [id], onDelete: Cascade)
-
-  @@unique([userId, wordId])
-  @@map("likes")
-}
-
-model Comment {
-  id        String   @id @default(cuid())
-  content   String   @db.Text
-  userId    String
-  wordId    String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  // Relationships
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  word Word @relation(fields: [wordId], references: [id], onDelete: Cascade)
-
-  @@map("comments")
-}
-
-enum Role {
-  USER
-  ADMIN
-  MODERATOR
 }

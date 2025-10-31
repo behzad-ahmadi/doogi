@@ -1,7 +1,7 @@
 'use server'
 
-import { getStoriesTag } from '@/src/lib/cache-tags'
-import { STORIES_TAG } from '@/src/lib/cache-tags'
+import { getStoriesTag } from '@/lib/cache-tags'
+import { STORIES_TAG } from '@/lib/cache-tags'
 import { revalidateTag } from 'next/cache'
 
 // Server action to revalidate stories for a specific language
