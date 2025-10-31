@@ -88,6 +88,50 @@
         "passwordRequired": "Password is required",
         "general": "Something went wrong. Please try again."
       }
+    },
+    "signup": {
+      "title": "Create Your Account",
+      "subtitle": "Join Doogi today and start sharing your stories",
+      "name": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email address",
+      "password": "Password",
+      "passwordPlaceholder": "Create a password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "signUp": "Create Account",
+      "signingUp": "Creating account...",
+      "googleSignUp": "Sign up with Google",
+      "haveAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "termsAccept": "By creating an account, you agree to our Terms of Service and Privacy Policy",
+      "error": {
+        "nameRequired": "Full name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "passwordRequired": "Password is required",
+        "passwordTooShort": "Password must be at least 8 characters",
+        "passwordMismatch": "Passwords do not match",
+        "userExists": "An account with this email already exists",
+        "general": "Something went wrong. Please try again."
+      }
+    },
+    "forgotPassword": {
+      "title": "Reset Your Password",
+      "subtitle": "Enter your email address and we'll send you a link to reset your password",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email address",
+      "sendReset": "Send Reset Link",
+      "sending": "Sending...",
+      "backToLogin": "Back to Login",
+      "success": "If an account with that email exists, we've sent you a password reset link.",
+      "error": {
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "userNotFound": "No account found with this email address",
+        "general": "Something went wrong. Please try again."
+      }
     }
   }
 }

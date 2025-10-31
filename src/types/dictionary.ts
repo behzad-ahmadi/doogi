@@ -89,5 +89,49 @@ export interface Dictionary {
         general: string
       }
     }
+    signup: {
+      title: string
+      subtitle: string
+      name: string
+      namePlaceholder: string
+      email: string
+      emailPlaceholder: string
+      password: string
+      passwordPlaceholder: string
+      confirmPassword: string
+      confirmPasswordPlaceholder: string
+      signUp: string
+      signingUp: string
+      googleSignUp: string
+      haveAccount: string
+      signIn: string
+      termsAccept: string
+      error: {
+        nameRequired: string
+        emailRequired: string
+        emailInvalid: string
+        passwordRequired: string
+        passwordTooShort: string
+        passwordMismatch: string
+        userExists: string
+        general: string
+      }
+    }
+    forgotPassword: {
+      title: string
+      subtitle: string
+      email: string
+      emailPlaceholder: string
+      sendReset: string
+      sending: string
+      backToLogin: string
+      success: string
+      error: {
+        emailRequired: string
+        emailInvalid: string
+        userNotFound: string
+        general: string
+      }
+    }
   }
 }
