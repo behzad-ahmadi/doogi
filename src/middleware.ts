@@ -27,9 +27,6 @@ export async function middleware(request: NextRequest) {
     pathname.startsWith('/static/') ||
     pathname.startsWith('/api/auth/') ||
     pathname.startsWith('/api/') ||
-    pathname === '/sw.js' ||
-    pathname === '/manifest.json' ||
-    pathname.startsWith('/web-app-manifest-') ||
     pathname === '/favicon.ico'
   ) {
     return NextResponse.next()

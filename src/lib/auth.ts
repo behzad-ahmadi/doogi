@@ -88,7 +88,6 @@ export const authOptions = {
       }
       return token
     },
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async redirect({ url, baseUrl }: { url: string; baseUrl: string }) {
       // If the URL is relative, make it absolute
       if (url.startsWith('/')) {

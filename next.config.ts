@@ -32,15 +32,7 @@ const config: NextConfig = {
           },
         ],
       },
-      {
-        source: '/manifest.json',
-        headers: [
-          {
-            key: 'Content-Type',
-            value: 'application/manifest+json',
-          },
-        ],
-      },
+
       {
         source: '/_next/image/:path*',
         headers: [
@@ -55,16 +47,8 @@ const config: NextConfig = {
   async rewrites() {
     return [
       {
-        source: '/sw.js',
-        destination: '/sw.js',
-      },
-      {
         source: '/:lang/images/:path*',
         destination: '/images/:path*',
-      },
-      {
-        source: '/:lang/web-app-manifest-192x192.png',
-        destination: '/web-app-manifest-192x192.png',
       },
       {
         source: '/:path*',
