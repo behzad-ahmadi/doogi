@@ -20,7 +20,6 @@ export const URL = {
 // Feature flags
 export const FEATURES = {
   ENABLE_ANALYTICS: process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === 'true',
-  ENABLE_PWA: process.env.NEXT_PUBLIC_ENABLE_PWA === 'true',
 } as const
 
 // App settings

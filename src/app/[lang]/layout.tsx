@@ -6,7 +6,6 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { ThemeProvider } from '@/contexts/theme-context'
 import { LanguageProvider } from '@/contexts/language-context'
-import PWAProvider from '@/components/PWAProvider'
 import ToastProvider from '@/components/ToastProvider'
 import MobileNavbar from '@/components/MobileNavbar'
 import { Viewport } from 'next'
@@ -21,17 +20,6 @@ export async function generateMetadata({
   const { lang } = await params
   return {
     title: 'Doogi',
-    manifest: `/${lang}/manifest.json`,
-    appleWebApp: {
-      capable: true,
-      statusBarStyle: 'default',
-      title: 'Doogi',
-    },
-    icons: {
-      icon: '/web-app-manifest-192x192.png',
-      shortcut: '/web-app-manifest-192x192.png',
-      apple: '/web-app-manifest-192x192.png',
-    },
   }
 }
 
@@ -58,26 +46,19 @@ export default async function RootLayout({
 
   return (
     <html lang={lang} dir={lang === 'fa' ? 'rtl' : 'ltr'}>
-      <head>
-        <link rel='manifest' href={`/${lang}/manifest.json`} />
-        <meta name='theme-color' content='#000000' />
-        <link rel='apple-touch-icon' href='/web-app-manifest-192x192.png' />
-      </head>
       <SessionWrapper>
         <body
           className={cn(inter.className, lang === 'fa' && vazirmatn.className)}
         >
           <ThemeProvider>
             <LanguageProvider dict={dict} lang={lang}>
-              <PWAProvider>
-                <div className='min-h-dvh flex flex-col max-w-7xl mx-auto relative'>
-                  <Navbar />
-                  <main className='flex-1 pb-16 md:pb-0'>{children}</main>
-                  <Footer />
-                  <MobileNavbar />
-                </div>
-                <ToastProvider />
-              </PWAProvider>
+              <div className='min-h-dvh flex flex-col max-w-7xl mx-auto relative'>
+                <Navbar />
+                <main className='flex-1 pb-16 md:pb-0'>{children}</main>
+                <Footer />
+                <MobileNavbar />
+              </div>
+              <ToastProvider />
             </LanguageProvider>
           </ThemeProvider>
         </body>
