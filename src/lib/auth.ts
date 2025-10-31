@@ -6,6 +6,7 @@ import bcrypt from 'bcryptjs'
 
 export const authOptions = {
   adapter: PrismaAdapter(prisma),
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -49,9 +50,21 @@ export const authOptions = {
   ],
   session: {
     strategy: 'database' as const, // با adapter
+    maxAge: 30 * 24 * 60 * 60, // 30 days
+  },
+  cookies: {
+    sessionToken: {
+      name: `next-auth.session-token`,
+      options: {
+        httpOnly: true,
+        sameSite: 'lax',
+        path: '/',
+        secure: process.env.NODE_ENV === 'production',
+      },
+    },
   },
   pages: {
-    signIn: '/login',
+    signIn: '/en/login', // Default to English login page
   },
   callbacks: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -67,6 +80,24 @@ export const authOptions = {
         token.id = user.id
       }
       return token
+    },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async redirect({ url, baseUrl }: { url: string; baseUrl: string }) {
+      // If the URL is relative, make it absolute
+      if (url.startsWith('/')) {
+        return `${baseUrl}${url}`
+      }
+      // If the URL is on the same origin, allow it
+      if (new URL(url).origin === baseUrl) {
+        return url
+      }
+      // Extract language from the URL if possible
+      const urlObj = new URL(url.startsWith('http') ? url : `${baseUrl}${url}`)
+      const pathSegments = urlObj.pathname.split('/').filter(Boolean)
+      const lang = pathSegments[0] === 'en' || pathSegments[0] === 'fa' ? pathSegments[0] : 'en'
+      
+      // Default redirect to home page with detected or default language
+      return `${baseUrl}/${lang}`
     },
   },
 }
