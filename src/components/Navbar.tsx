@@ -97,6 +97,10 @@ export default function Navbar() {
           {dict.nav.doogi}
         </Link>
       </div>
+
+      <div className='navbar-end hidden lg:flex'>
+        <LanguageSwitcher />
+      </div>
     </div>
   )
 }
