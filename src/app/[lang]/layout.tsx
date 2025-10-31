@@ -18,8 +18,7 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>
 }) {
   const { lang } = await params
-  const dict = await getDictionary(lang as 'en' | 'fa')
-
+  
   const isEnglish = lang === 'en'
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
 

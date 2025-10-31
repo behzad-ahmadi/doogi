@@ -1,4 +1,3 @@
-import { getDictionary } from '@/lib/dictionaries'
 import { Metadata } from 'next'
 
 type ForgotPasswordLayoutProps = {
@@ -12,7 +11,6 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>
 }): Promise<Metadata> {
   const { lang } = await params
-  const dict = await getDictionary(lang as 'en' | 'fa')
   
   const isEnglish = lang === 'en'
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
@@ -69,6 +67,6 @@ export async function generateMetadata({
   }
 }
 
-export default async function ForgotPasswordLayout({ children, params }: ForgotPasswordLayoutProps) {
+export default async function ForgotPasswordLayout({ children }: ForgotPasswordLayoutProps) {
   return <>{children}</>
 }
