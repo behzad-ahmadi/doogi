@@ -23,20 +23,28 @@ export default function ThemeController() {
 
   return (
     <div className='dropdown dropdown-center'>
-      <div tabIndex={0} role='button' className='btn btn-ghost'>
+      <div tabIndex={0} role='button' className='btn btn-ghost hover:bg-primary/10 transition-colors duration-200 text-lg'>
         {themeIcon}
       </div>
       <ul
         tabIndex={0}
-        className='dropdown-content menu bg-base-100 rounded-box z-[2] w-32 p-2 shadow'
+        className='dropdown-content menu bg-base-100/95 backdrop-blur-md rounded-box z-[2] w-36 p-2 shadow-xl border border-base-300/50'
       >
         <li>
-          <button onClick={() => setTheme('doogi')}>
+          <button 
+            onClick={() => setTheme('doogi')}
+            className='hover:bg-primary/10 hover:text-primary transition-all duration-200 rounded-lg gap-2'
+          >
             🍊 Doogi
           </button>
         </li>
         <li>
-          <button onClick={() => setTheme('dark')}>{dict.theme.dark}</button>
+          <button 
+            onClick={() => setTheme('dark')}
+            className='hover:bg-primary/10 hover:text-primary transition-all duration-200 rounded-lg gap-2'
+          >
+            🌙 {dict.theme.dark}
+          </button>
         </li>
       </ul>
     </div>
