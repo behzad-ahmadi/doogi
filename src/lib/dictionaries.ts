@@ -1,5 +1,5 @@
 import 'server-only'
-import { Dictionary } from '@/src/types/dictionary'
+import { Dictionary } from '@/types/dictionary'
 
 const dictionaries = {
   en: () =>

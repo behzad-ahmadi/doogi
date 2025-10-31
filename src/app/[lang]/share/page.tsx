@@ -1,5 +1,5 @@
-import { getDictionary } from '@/src/lib/dictionaries'
-import ShareForm from '@/src/components/ShareForm'
+import { getDictionary } from '@/lib/dictionaries'
+import ShareForm from '@/components/ShareForm'
 
 type PageProps = {
   params: Promise<{ lang: 'en' | 'fa' }>

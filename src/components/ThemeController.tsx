@@ -1,7 +1,7 @@
 'use client'
 
-import { useLanguage } from '@/src/contexts/language-context'
-import { useTheme } from '@/src/contexts/theme-context'
+import { useLanguage } from '@/contexts/language-context'
+import { useTheme } from '@/contexts/theme-context'
 import { useEffect, useState } from 'react'
 
 export default function ThemeController() {

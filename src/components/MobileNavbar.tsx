@@ -1,9 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import { useLanguage } from '@/src/contexts/language-context'
+import { useLanguage } from '@/contexts/language-context'
 import { usePathname } from 'next/navigation'
-import { cn } from '@/src/lib/utils'
+import { cn } from '@/lib/utils'
 
 export default function MobileNavbar() {
   const { dict, lang } = useLanguage()

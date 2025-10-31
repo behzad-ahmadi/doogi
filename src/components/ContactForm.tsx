@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useLanguage } from '@/src/contexts/language-context'
+import { useLanguage } from '@/contexts/language-context'
 
 export default function ContactForm() {
   const { dict } = useLanguage()

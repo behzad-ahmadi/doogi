@@ -1,9 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import ThemeController from '@/src/components/ThemeController'
-import LanguageSwitcher from '@/src/components/LanguageSwitcher'
-import { useLanguage } from '@/src/contexts/language-context'
+import ThemeController from '@/components/ThemeController'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
+import { useLanguage } from '@/contexts/language-context'
 import Image from 'next/image'
 
 export default function Navbar() {

@@ -7,8 +7,8 @@ import { toast } from 'react-toastify'
 import Input from './ui/Input'
 import { Textarea } from './ui/Textarea'
 import { Button } from './ui/Button'
-import { useLanguage } from '@/src/contexts/language-context'
-import { revalidateStories } from '@/src/lib/revalidate'
+import { useLanguage } from '@/contexts/language-context'
+import { revalidateStories } from '@/lib/revalidate'
 
 const shareSchema = z.object({
   childName: z.string().min(1, 'share.validation.childName'),

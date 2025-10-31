@@ -1,6 +1,6 @@
-import prisma from '@/src/lib/prisma'
+import prisma from '@/lib/prisma'
 import { unstable_cache } from 'next/cache'
-import { STORIES_TAG, getStoriesTag } from '@/src/lib/cache-tags'
+import { STORIES_TAG, getStoriesTag } from '@/lib/cache-tags'
 
 export type WordWithChild = {
   id: string

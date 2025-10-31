@@ -1,7 +1,7 @@
 'use client'
 
-import { useLanguage } from '@/src/contexts/language-context'
-import { getCurrentYear } from '@/src/lib/utils/date'
+import { useLanguage } from '@/contexts/language-context'
+import { getCurrentYear } from '@/lib/utils/date'
 
 export default function Footer() {
   const { dict, lang } = useLanguage()

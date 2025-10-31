@@ -1,6 +1,6 @@
-import Loading from '@/src/components/Loading'
-import Stories from '@/src/components/Stories'
-import { getDictionary } from '@/src/lib/dictionaries'
+import Loading from '@/components/Loading'
+import Stories from '@/components/Stories'
+import { getDictionary } from '@/lib/dictionaries'
 import { Suspense } from 'react'
 
 export default async function Home({

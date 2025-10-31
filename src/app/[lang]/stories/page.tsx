@@ -1,4 +1,4 @@
-import Stories from '@/src/components/Stories'
+import Stories from '@/components/Stories'
 
 interface PageProps {
   params: Promise<{
