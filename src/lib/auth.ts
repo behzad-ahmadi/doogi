@@ -70,9 +70,7 @@ export const authOptions = {
       },
     },
   },
-  pages: {
-    signIn: '/en/login', // Default to English login page
-  },
+
   callbacks: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async session({ session, user }: { session: any; user: any }) {
@@ -97,13 +95,28 @@ export const authOptions = {
       if (new URL(url).origin === baseUrl) {
         return url
       }
-      // Extract language from the URL if possible
-      const urlObj = new URL(url.startsWith('http') ? url : `${baseUrl}${url}`)
-      const pathSegments = urlObj.pathname.split('/').filter(Boolean)
-      const lang = pathSegments[0] === 'en' || pathSegments[0] === 'fa' ? pathSegments[0] : 'en'
       
-      // Default redirect to home page with detected or default language
-      return `${baseUrl}/${lang}`
+      // Try to extract language from the current URL or callback URL
+      let detectedLang = 'fa' // Default to Persian as per middleware
+      
+      // Check if URL contains language parameter
+      if (url.includes('callbackUrl=')) {
+        const callbackUrl = decodeURIComponent(url.split('callbackUrl=')[1])
+        const callbackSegments = callbackUrl.split('/').filter(Boolean)
+        if (callbackSegments[0] === 'en' || callbackSegments[0] === 'fa') {
+          detectedLang = callbackSegments[0]
+        }
+      } else {
+        // Extract from current URL
+        const urlObj = new URL(url.startsWith('http') ? url : `${baseUrl}${url}`)
+        const pathSegments = urlObj.pathname.split('/').filter(Boolean)
+        if (pathSegments[0] === 'en' || pathSegments[0] === 'fa') {
+          detectedLang = pathSegments[0]
+        }
+      }
+      
+      // Default redirect to home page with detected language
+      return `${baseUrl}/${detectedLang}`
     },
   },
 }
